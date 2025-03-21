@@ -12,8 +12,10 @@ ca:12345:ctrlaltdel:/sbin/shutdown -t1 -r now
 
 # Поведением Ctrl+Alt+Delete в SYSTEMD управляет /etc/systemd/system/ctrl-alt-del.target.
 # На самом деле ctrl-alt-del.target это ссылка на /lib/systemd/system/reboot.target
+```
 
 
+```ruby
 # Linux книга рецептов. Карла Шрёдер, стр. 99
 
 ```
