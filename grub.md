@@ -114,16 +114,15 @@ grub> ls (hd0,2)/
 # Все загрузочные файлы находятся в каталоге /boot
 grub> ls (hd0,2)/boot
 
-# Ядро Linux
-vmlinuz-5.3.18-lp152.57-default
-
-# Временная корневая файловая система, используемая только в начале запуска системы.
-initrd-5.3.18-lp152.57-default
-
 grub> set root=(hd0,2)
 grub> linux /boot/vmlinuz-5.3.18-lp152.57-default root=/dev/sda2
 grub> initrd /boot/initrd-5.3.18-lp152.57-default
 grub> boot
+
+# Ядро Linux
+vmlinuz-5.3.18-lp152.57-default
+# Временная корневая файловая система, используемая только в начале запуска системы.
+initrd-5.3.18-lp152.57-default
 
 # Linux книга рецептов. Карла Шрёдер, стр. 82
 ```
