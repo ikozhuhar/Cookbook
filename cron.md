@@ -15,10 +15,10 @@ chmod +x backup.sh
 # Файл /etc/crontab
 45 14 * * * ikozhuhar /home/CORP.COSMOSGROUP.RU/ikozhuhar/backup.sh
 50 13 * * * root /sbin/shutdown -h +20
-```ruby
+```
 
 
 ```ruby
 # Linux книга рецептов. Карла Шрёдер, стр. 101
 
-```ruby
+```
