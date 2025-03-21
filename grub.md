@@ -106,6 +106,9 @@ grub> set pager=1
 # Раздел hd0,gpt5 соответствует разделу /dev/sda5, а hd1,msdos1 — разделу /dev/sdb1
 
 grub> ls
+
+![image](https://github.com/user-attachments/assets/22d92b4e-8073-4a0e-b311-7aca4d449e2b)
+
 grub> ls (hd0,3)
 
 # Слеш означает «список всех файлов и каталогов в разделе»
