@@ -1,4 +1,4 @@
-#### [:diamond_shape_with_a_dot_inside:](#toc) <a name='3'>Управление загрузчиком GRUB</a>
+### [:diamond_shape_with_a_dot_inside:](#toc) <a name='3'>Управление загрузчиком GRUB</a>
 
 _**Задача:** Собрать конфигурацию GRUB после изменения настроек._
 
