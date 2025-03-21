@@ -27,7 +27,7 @@ _**Задача:** Отображение скрытого меню GRUB._
 	GRUB_HIDDEN_TIMEOUT=0 и GRUB_HIDDEN_TIMEOUT_QUIET=true
 
 	# Собрать конфигурацию
-	$ sudo update-grub или sudo grub2-mkconfig -o /boot/grub2/grub.cfg, sudo grub-mkconfig -o /boot/grub/grub.cfg
+	$ sudo update-grub или sudo grub2-mkconfig -o /boot/grub2/grub.cfg, grub-mkconfig -o /boot/grub/grub.cfg
 
 
 	# Параметр GRUB_HIDDEN_TIMEOUT=0 запрещает отображение меню GRUB, а параметр
