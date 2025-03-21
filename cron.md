@@ -13,4 +13,6 @@ chmod +x backup.sh
 45 14 * * * ikozhuhar /home/CORP.COSMOSGROUP.RU/ikozhuhar/backup.sh
 50 13 * * * root /sbin/shutdown -h +20
 
+# Linux книга рецептов. Карла Шрёдер, стр. 101
+
 ```
