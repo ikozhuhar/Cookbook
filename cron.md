@@ -6,7 +6,7 @@ nano backup.sh
 #!/bin/bash
 cp /home/CORP.COSMOSGROUP.RU/ikozhuhar/EMCSetup.exe /home/CORP.COSMOSGROUP.RU/ikozhuhar/test-cron/
 
-cmod +x backup.sh
+chmod +x backup.sh
 
 # Файл /etc/crontab
 45 14 * * * ikozhuhar /home/CORP.COSMOSGROUP.RU/ikozhuhar/backup.sh
