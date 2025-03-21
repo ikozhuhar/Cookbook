@@ -8,6 +8,7 @@ nano backup.sh
 cp /home/CORP.COSMOSGROUP.RU/ikozhuhar/EMCSetup.exe /home/CORP.COSMOSGROUP.RU/ikozhuhar/test-cron/
 cp /home/CORP.COSMOSGROUP.RU/ikozhuhar/EMCSetup.exe /run/media/ikozhuhar/Ventoy/
 
+# Право на исполнение
 chmod +x backup.sh
 ```
 
