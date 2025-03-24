@@ -70,8 +70,27 @@ man 1 journalctl
 
 _**Задача:** Запуск и остановка служб._
 
+```ruby
+# Запуск службы:
+sudo systemctl start sshd.service
 
+# Остановка службы:
+sudo systemctl stop sshd.service
 
+# Остановка и перезапуск службы:
+sudo systemctl restart sshd.service
+
+# Перезагрузка службы. Например, внесли изменения в sshd_config, чтобы эти изменения вступили в силу без перезапуска службы:
+sudo systemctl reload sshd.service
+
+# Запуск нескольких служб
+sudo systemctl start sshd.service mariadb.service firewalld.service
+```
+
+```ruby
+# Дополнительная информация
+man 1 systemctl
+```
 
 
 
