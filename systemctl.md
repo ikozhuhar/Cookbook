@@ -196,8 +196,7 @@ systemctl list-dependencies graphical.target
 ```ruby
 runlevel0.target, poweroff.target # остановка системы
 runlevel1.target, rescue.target # однопользовательский режим без графической среды, все локальные файловые системы монтируются, вход может выполнить только пользователь root, сеть неактивна
-runlevel3.target, multi-user.target # многопользовательский режим без
-графической среды
+runlevel3.target, multi-user.target # многопользовательский режим без графической среды
 runlevel5.target, graphical.target # многопользовательский режим с графической средой
 runlevel6.target, reboot.target # перезагрузка
 ```
