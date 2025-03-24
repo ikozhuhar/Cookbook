@@ -93,7 +93,43 @@ man 1 systemctl
 ```
 
 
+<br>
 
+_**Задача:** Включение и выключение служб._
+
+```ruby
+
+# включение службы сводится к созданию в каталоге /etc/systemd/system/ символической ссылки на файл службы в каталоге /lib/ systemd/system/.
+sudo systemctl enable sshd.service
+
+# включение и немедленный запуск службы
+sudo systemctl enable --now sshd.service
+
+# выключиние службы sshd
+sudo systemctl disable sshd.service
+
+# выключиние и немедленная остановка службы sshd
+sudo systemctl disable --now sshd.service
+
+# остановка службы sshd
+sudo systemctl stop sshd.service
+
+# Перевключение службы
+sudo systemctl reenable mariadb.service
+
+# команда полностью выключает службу bluetooth, маскируя ее
+sudo systemctl mask bluetooth.service
+
+# Размаскирование службы не включает ее, поэтому ее нужно запускать вручную
+sudo systemctl unmask bluetooth.service
+sudo systemctl start bluetooth.service
+```
+
+```ruby
+# Дополнительная информация
+
+man 1 systemctl
+```
 
 
 
