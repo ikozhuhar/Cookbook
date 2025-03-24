@@ -4,5 +4,7 @@
 
 ```ruby
 # Проверка использования systemd дистрибутиве Linux
-stat /sbin/init
+sudo stat /sbin/init
+sudo stat /proc/1/exe
+cat /proc/1/comm
 ```
