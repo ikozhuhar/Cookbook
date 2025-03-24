@@ -8,3 +8,5 @@ sudo stat /sbin/init
 sudo stat /proc/1/exe
 cat /proc/1/comm
 ```
+
+![image](https://github.com/user-attachments/assets/b87b502c-6bc2-4aaa-b4fd-94c2c0937935)
