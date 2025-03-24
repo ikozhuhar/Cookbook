@@ -131,6 +131,25 @@ man 1 systemctl
 ```
 
 
+<br>
+
+_**Задача:** Остановка неисправных процессов._
+
+```ruby
+
+sudo systemctl kill mariadb
+sudo systemctl kill -9 mariadb
+```
+
+```ruby
+# Дополнительная информация
+man 5 systemd.kill
+man 1 systemctl
+man 1 kill
+man 7 signal
+```
+
+
 
 
 
