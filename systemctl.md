@@ -139,6 +139,9 @@ _**Задача:** Остановка неисправных процессов.
 
 sudo systemctl kill mariadb
 sudo systemctl kill -9 mariadb
+
+sudo systemctl kill 1234
+sudo systemctl kill -9 1234
 ```
 
 ```ruby
