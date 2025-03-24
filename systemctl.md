@@ -127,7 +127,6 @@ sudo systemctl start bluetooth.service
 
 ```ruby
 # Дополнительная информация
-
 man 1 systemctl
 ```
 
