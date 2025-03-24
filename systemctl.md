@@ -59,10 +59,16 @@ systemctl status mariadb.service bluetooth.service lm-sensors.service
 
 ![image](https://github.com/user-attachments/assets/7eb9765b-e269-41d5-a713-90b24ffdc19f)
 
+```ruby
+# Дополнительная информация
+man 1 systemctl
+man 5 systemd.slice
+man 1 journalctl
+```
 
+<br>
 
-
-
+_**Задача:** Запуск и остановка служб._
 
 
 
