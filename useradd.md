@@ -108,7 +108,22 @@ _**Задача:** Настройка каталогов для документ
 
 ![image](https://github.com/user-attachments/assets/bd60f9c0-adb6-434f-9cfd-5ff19de4db4d)
 
+Восстановить настройки по умолчанию из `/etc/xdg/user-dirs.defaults` можно с помощью команды:
 
+```ruby
+xdg-user-dirs-update --force
+```
+
+Выйдите и войдите снова, чтобы убедиться, что ни один из ваших каталогов не был удален и не претерпел никаких изменений, кроме отображения специальных значков в диспетчере файлов.
+
+В команде `xdg-user-dirs-update --set` можно использовать только имена, перечисленные в руководстве `man 5 user-dirs.default`
+
+```ruby
+# Дополнительная информация
+man 5 user-dirs.defaults
+man 1 xdg-user-dirs-update
+man 5 user-dirs.conf
+```
 
 
 
