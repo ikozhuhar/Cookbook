@@ -99,3 +99,29 @@ _**Задача:** Настройка каталогов для документ
 
 ![image](https://github.com/user-attachments/assets/76466daf-1273-4a2d-89d8-07c70b5d958f)
 
+
+Пользователи могут самостоятельно определять свои настройки в `~/.config/user-dirs.dirs`. Каталоги должны существовать до применения изменений.
+
+![image](https://github.com/user-attachments/assets/51da3052-68ed-49eb-9dbc-7e68a6980d5e)
+
+Внеся изменения и создав нужные каталоги, выполните команду xdg-user-dirsupdate, чтобы применить изменения:
+
+![image](https://github.com/user-attachments/assets/cc4c0eb8-04b2-4b20-b010-adf4942ce1cf)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
