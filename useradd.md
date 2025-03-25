@@ -33,6 +33,7 @@ sudo useradd -G group1,group2,group3 -c 'Test 1,,,,' test1
 # Дополнительная информация
 man 8 useradd
 man 5 login.defs
+
 /etc/default/useradd
 /etc/skel
 /etc/login/defs
@@ -79,6 +80,7 @@ sudo ls -la /etc/skel
 # Дополнительная информация
 man 8 useradd
 man 5 login.defs
+
 /etc/default/useradd
 /etc/skel
 /etc/login/defs
