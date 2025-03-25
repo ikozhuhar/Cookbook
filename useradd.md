@@ -63,7 +63,16 @@ sudo cat /etc/default/useradd
 ```
 ![image](https://github.com/user-attachments/assets/e0e5cadf-f70b-4f64-8511-e9adf2515670)
 
+```ruby
+# Дополнительная информация
+man 8 useradd
+man 5 login.defs
+/etc/default/useradd
+/etc/skel
+/etc/login/defs
 
+# Linux книга рецептов. Карла Шрёдер, стр. 143
+```
 
 
 
