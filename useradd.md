@@ -51,7 +51,6 @@ sudo useradd -rs /bin/false service1
 ```
 
 
-<br>
 _**Задача:** Изменение настроек по умолчанию для команды useradd._
 
 Настройки команды `useradd` разбросаны по множеству конфигурационных файлов, таких как `/etc/default/useradd`, `/etc/login.defs` и файлы в каталоге `/etc/skel`.
