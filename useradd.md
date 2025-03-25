@@ -106,7 +106,8 @@ _**Задача:** Настройка каталогов для документ
 
 Внеся изменения и создав нужные каталоги, выполните команду xdg-user-dirsupdate, чтобы применить изменения:
 
-![image](https://github.com/user-attachments/assets/cc4c0eb8-04b2-4b20-b010-adf4942ce1cf)
+![image](https://github.com/user-attachments/assets/3ad94e8e-62d1-4f5e-bed5-a2a9524d974b)
+
 
 
 
