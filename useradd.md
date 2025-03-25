@@ -64,6 +64,12 @@ sudo cat /etc/default/useradd
 ![image](https://github.com/user-attachments/assets/e0e5cadf-f70b-4f64-8511-e9adf2515670)
 
 ```ruby
+sudo ls -la /etc/skel
+```
+![image](https://github.com/user-attachments/assets/6e9895a5-1882-4f63-b6c2-be498c2fe649)
+
+
+```ruby
 # Дополнительная информация
 man 8 useradd
 man 5 login.defs
