@@ -28,4 +28,5 @@ _**Задача**: Безопасная передача файлов с пом�
 
 ```ruby
 rsync -av empress@remote.example.com:/backups/woodwinds /home/duchess/Music/
+rsync -av admin@10.104.100.156:/var/www/html .
 ```
