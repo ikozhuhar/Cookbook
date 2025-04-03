@@ -306,9 +306,9 @@ $ ln /files/config1.txt myconf.txt
 ln -s Switching-and-Routing-09.02.2025.mm link_name
 ```
 
-![image](https://github.com/user-attachments/assets/5e2cc86e-0874-40e5-b38a-a0abd28ffea1)
-
 ![image](https://github.com/user-attachments/assets/fe27acb4-0aae-489e-98ef-15eddd63feb5)
+
+![image](https://github.com/user-attachments/assets/5e2cc86e-0874-40e5-b38a-a0abd28ffea1)
 
 
 
