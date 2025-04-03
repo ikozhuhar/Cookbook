@@ -330,6 +330,7 @@ _Краткое содержание_
 
 ![image](https://github.com/user-attachments/assets/16137789-a977-4e1e-9688-656d337102f7)
 
+![image](https://github.com/user-attachments/assets/a7ee07ff-e7ef-4edb-a63d-0791d2c12a09)
 
 
 
