@@ -302,6 +302,7 @@ $ ln /files/config1.txt myconf.txt
 Символическая ссылка выглядит следующим образом:
 
 ```ruby
+# Создание ссылки
 ln -s Switching-and-Routing-09.02.2025.mm link_name
 ```
 
