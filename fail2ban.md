@@ -13,8 +13,13 @@ fail2ban-client set sshd addignoreip 185.63.61.33
 fail2ban-client set exim-isp addignoreip 185.63.61.33
 fail2ban-client set exim-isp addignoreip 185.63.60.81
 
+# Смотрим
+fail2ban-client get sshd ignoreip
+fail2ban-client get exim-isp ignoreip
+
 # Удаляем
 fail2ban-client set sshd delignoreip 185.63.61.33
+fail2ban-client set exim-isp delignoreip 185.63.61.33
 ```
 
 ```ruby
