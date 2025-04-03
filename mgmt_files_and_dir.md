@@ -301,6 +301,10 @@ $ ln /files/config1.txt myconf.txt
 
 Символическая ссылка выглядит следующим образом:
 
+```ruby
+ln -s Switching-and-Routing-09.02.2025.mm link_name
+```
+
 ![image](https://github.com/user-attachments/assets/5e2cc86e-0874-40e5-b38a-a0abd28ffea1)
 
 
