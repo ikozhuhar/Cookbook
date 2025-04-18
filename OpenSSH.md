@@ -34,7 +34,6 @@ ListenAddress 192.168.10.15
 ```ruby
 sshd 2022
 sshd 2023
-```
 
 # После этого добавьте их в файл /etc/ssh/sshd_config:
 Port 2022
