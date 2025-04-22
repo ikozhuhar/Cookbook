@@ -158,9 +158,9 @@ sudo chmod 755 /mnt/sshfs               # rwxr-xr-x
 ```ruby
 sudo mkdir /mnt/sshfs
 
-# Монтирования удаленного каталога в свой локальный каталог sshfs
-sudo sshfs administrator@192.168.11.137:/mnt/sshfs /mnt/sshfs/
-sudo sshfs administrator@192.168.11.137:/home/administrator/Desktops/Desktop1 /mnt/sshfs
+# Монтирования удаленного каталога в свой локальный каталог sshfs. Пользователь должен существовать на удаленном сервере.
+sudo sshfs padmin@192.168.11.137:/mnt/sshfs /mnt/sshfs/
+sudo sshfs padmin@192.168.11.137:/home/administrator/Desktops/Desktop1 /mnt/sshfs
 
 # Завершив работу с удаленной файловой системой
 sudo fusermount -u sshfs
