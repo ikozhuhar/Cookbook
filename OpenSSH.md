@@ -150,7 +150,7 @@ sudo apt install sshfs
 sudo mkdir /mnt/sshfs
 
 sudo chown $USER:$USER /mnt/sshfs  # Владелец — текущий пользователь
-chmod 755 /mnt/sshfs               # rwxr-xr-x
+sudo chmod 755 /mnt/sshfs               # rwxr-xr-x
 ```
 
 **На клиенте**
