@@ -31,6 +31,10 @@ firewall-cmd --zone=public --list-all
 # Или посмотреть активные зоны и их настройки
 firewall-cmd --get-active-zones
 
+# Всегда указывайте зону, например:
+sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
+sudo firewall-cmd --reload
+
 # https://ruvds.com/ru/helpcenter/upravlenie-portami-v-linux/
 # https://www.dmosk.ru/miniinstruktions.php?mini=firewalld-centos
 ```
