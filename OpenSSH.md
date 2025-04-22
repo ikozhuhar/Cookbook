@@ -138,3 +138,26 @@ $ ssh mailadmin@server2.example.com sudo systemctl restart postfix
 ### Монтирование удаленной файловой системы через sshfs
 
 `sshfs` — инструмент, предназначенный для монтирования удаленных файловых систем и последующего доступа к ним как к локальной файловой системе, без хлопот по настройке сервера `NFS` или `Samba`.
+
+**На сервере**
+
+```ruby
+sudo apt install sshfs
+sudo mkdir /mnt/sshfs
+```
+
+**На клиенте**
+
+```ruby
+sudo mkdir /mnt/sshfs
+
+# Монтирования удаленного каталога в свой локальный каталог sshfs
+sudo sshfs administrator@192.168.11.137:/mnt/sshfs /mnt/sshfs/
+sudo sshfs administrator@192.168.11.137:/home/administrator/Desktops/Desktop1 /mnt/sshfs
+
+# Завершив работу с удаленной файловой системой
+sudo fusermount -u sshfs
+```
+
+![image](https://github.com/user-attachments/assets/311cfce0-9b87-4b77-b08b-4e5457876405)
+
