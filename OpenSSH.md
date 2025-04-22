@@ -149,8 +149,9 @@ $ ssh mailadmin@server2.example.com sudo systemctl restart postfix
 sudo apt install sshfs
 sudo mkdir /mnt/sshfs
 
-sudo chown $USER:$USER /mnt/sshfs  # Владелец — текущий пользователь
-sudo chmod 755 /mnt/sshfs               # rwxr-xr-x
+# Владелец — текущий пользователь
+sudo chown $USER:$USER /mnt/sshfs  
+sudo chmod 755 /mnt/sshfs 
 ```
 
 **На клиенте**
@@ -158,7 +159,8 @@ sudo chmod 755 /mnt/sshfs               # rwxr-xr-x
 ```ruby
 sudo mkdir /mnt/sshfs
 
-# Монтирования удаленного каталога в свой локальный каталог sshfs. Пользователь должен существовать на удаленном сервере.
+# Монтирования удаленного каталога в свой локальный каталог sshfs.
+# Пользователь должен существовать на удаленном сервере.
 sudo sshfs padmin@192.168.11.137:/mnt/sshfs /mnt/sshfs/
 sudo sshfs padmin@192.168.11.137:/home/administrator/Desktops/Desktop1 /mnt/sshfs
 
