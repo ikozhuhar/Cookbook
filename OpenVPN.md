@@ -55,10 +55,15 @@ remote 192.168.50.133
 
 ```ruby
 sudo openvpn /etc/openvpn/server1.conf
+```
 
+```ruby
 ping -I tun0 10.0.0.1
 ping -I tun0 10.0.0.2
 ```
+
+![image](https://github.com/user-attachments/assets/9dd65fef-bcfa-4331-8768-480cd525d8f5)
+
 
 ![image](https://github.com/user-attachments/assets/a8d1cd17-73b1-4a71-b07b-a472e247f51f)
 
