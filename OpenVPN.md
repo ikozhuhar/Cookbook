@@ -52,7 +52,7 @@ local 192.168.50.133
 ```ruby
 # Нужно создать папку и скопировать ключ myvpn.key с сервера
 sudo mkdir /etc/openvpn/keys
-scp ikozhuhar@192.168.50.133:/etc/openvpn/kyes/myvpn.key .
+scp ikozhuhar@192.168.50.133:/etc/openvpn/keys/myvpn.key .
 ```
 ![image](https://github.com/user-attachments/assets/6817fd6d-23df-43a2-b496-c55b814c1f6e)
 
