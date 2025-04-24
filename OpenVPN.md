@@ -8,6 +8,9 @@ sudo openvpn --remote 192.168.50.147 --dev tun0 --ifconfig 10.0.0.1 10.0.0.2
 sudo openvpn --remote 192.168.50.133 --dev tun0 --ifconfig 10.0.0.2 10.0.0.1
 ```
 
+
+<br>
+
 ### Настройка простого шифрования со статическими ключами
 
 _Задача: Добавить шифрование для OpenVPN максимально простым способом._
@@ -66,6 +69,12 @@ ping -I tun0 10.0.0.1
 ping -I tun0 10.0.0.2
 ```
 ![image](https://github.com/user-attachments/assets/abafe2ba-5a7e-41e3-9740-84b31d3b7e09)
+
+
+
+<br>
+
+### Установка EasyRSA для управления инфраструктурой PKI
 
 
 
