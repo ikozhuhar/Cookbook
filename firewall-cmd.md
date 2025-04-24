@@ -38,3 +38,6 @@ sudo firewall-cmd --reload
 # https://ruvds.com/ru/helpcenter/upravlenie-portami-v-linux/
 # https://www.dmosk.ru/miniinstruktions.php?mini=firewalld-centos
 ```
+
+
+[Установка и настройка Firewalld](https://blog.sedicomm.com/2017/04/17/ustanovka-i-nastrojka-firewalld/)
