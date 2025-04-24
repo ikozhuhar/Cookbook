@@ -25,7 +25,9 @@ _**Задача:** Добавить шифрование для OpenVPN макс
 **2)** создайте конфигурационные файлы для сервера и клиента;  
 **3)** запустите OpenVPN на обоих хостах, использовав ссылки на их конфигурационные файлы.  
 
-Создайте новый каталог на сервере OpenVPN для хранения ключей, затем создайте новый статический ключ:
+Создайте новый каталог на `сервере` OpenVPN для хранения ключей, затем создайте новый статический ключ:
+
+**На сервере**
 
 ```ruby
 $ sudo mkdir /etc/openvpn/keys
@@ -44,6 +46,14 @@ local 192.168.50.133
 
 ![image](https://github.com/user-attachments/assets/de36d250-4da1-41bc-9450-065cd17f8344)
 
+
+**На клиенте**
+
+```ruby
+$ sudo mkdir /etc/openvpn/keys
+$ sudo openvpn --genkey secret /etc/openvpn/keys/myvpn.key
+```
+![image](https://github.com/user-attachments/assets/6817fd6d-23df-43a2-b496-c55b814c1f6e)
 
 
 ```ruby
