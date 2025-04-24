@@ -50,8 +50,8 @@ local 192.168.50.133
 **На клиенте**
 
 ```ruby
+# Нужно создать папку и скопировать ключ myvpn.conf с сервера
 $ sudo mkdir /etc/openvpn/keys
-$ sudo openvpn --genkey secret /etc/openvpn/keys/myvpn.key
 ```
 ![image](https://github.com/user-attachments/assets/6817fd6d-23df-43a2-b496-c55b814c1f6e)
 
