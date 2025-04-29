@@ -156,9 +156,8 @@ easyrsa sign-req client vpnclient1
 openvpn --genkey --secret ta.key
 ```
 
-Скопируйте vpnclient1.key, vpnclient1.crt, ca.crt и ta.key в каталог `/etc/openvpn/keys` на машине `client1`.
-
-Скопируйте vpnserver1.key, vpnserver1.crt, ca.crt, dh.pem и ta.key в каталог `/etc/openvpn/keys` на машине `server1`.
+- Скопируйте vpnclient1.key, vpnclient1.crt, ca.crt и ta.key в каталог `/etc/openvpn/keys` на машине `client1`.
+- Скопируйте vpnserver1.key, vpnserver1.crt, ca.crt, dh.pem и ta.key в каталог `/etc/openvpn/keys` на машине `server1`.
 
 После подписания запроса на подпись сертификата можно удалить все файлы `*.req`.
 
