@@ -124,36 +124,36 @@ sudo cp -r /usr/share/easy-rsa mypki
 
 ```ruby
 # Она создаст пустую структуру каталогов для новой PKI.
-~$ cd mypki
-~/mypki $ easyrsa init-pki
+cd mypki
+easyrsa init-pki
 
 # Затем создайте новый центр сертификации. ЦС создает и подписывает сертификаты сервера и клиентов
-~/mypki $ easyrsa build-ca
+easyrsa build-ca
 ```
 
 Сгенерируйте запрос на СОЗДАНИЕ пары ключей и подписание сертификата для вашего СЕРВЕРА OpenVPN. Обычно не принято добавлять парольную фразу в закрытый ключ сервера, но вы можете защитить его паролем, если хотите, опустив параметр nopass. Парольная фраза обеспечивает надежную защиту, но тогда вам придется вводить ее каждый раз при перезапуске сервера:
 
 ```ruby
-~/mypki $ easyrsa gen-req vpnserver1 nopass
+easyrsa gen-req vpnserver1 nopass
 ```
 
 Сгенерируйте запрос на создание пары ключей и подписание сертификата для клиента.
 
 ```ruby
-~/mypki $ easyrsa gen-req vpnclient1
+easyrsa gen-req vpnclient1
 ```
 
 Подпишите запросы, используя общие имена (Common Name) сервера и клиента. Используйте только имена; если вы введете их пути, то это приведет к ошибке:
 
 ```ruby
-~/mypki $ easyrsa sign-req server vpnserver1
-~/mypki $ easyrsa sign-req client vpnclient1
+easyrsa sign-req server vpnserver1
+easyrsa sign-req client vpnclient1
 ```
 
 Создайте на сервере ключ HMAC (Hash-based Message Authentication Code — код аутентификации сообщения на основе хеш-функции):
 
 ```ruby
-$ openvpn --genkey --secret ta.key
+openvpn --genkey --secret ta.key
 ```
 
 Скопируйте vpnclient1.key, vpnclient1.crt, ca.crt и ta.key в каталог `/etc/openvpn/keys` на машине `client1`.
