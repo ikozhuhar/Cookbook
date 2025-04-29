@@ -161,3 +161,75 @@ openvpn --genkey --secret ta.key
 
 После подписания запроса на подпись сертификата можно удалить все файлы `*.req`.
 
+
+### Создание и тестирование конфигураций сервера и клиента
+
+В данном рецепте мы настроим простую тестовую конфигурацию с двумя хостами в одной подсети, server1 и client1. Это хороший простой способ проверить настройки сервера, не беспокоясь о маршрутизации и пересечении вашего интернет-шлюза.
+
+В следующем примере представлены настройки СЕРВЕРА OpenVPN. Обратите внимание, что серверные ключи можно хранить где угодно на сервере, важно только правильно указать их местоположение в файле с настройками:
+
+_Пример настроек клиента:_
+
+```ruby
+# vpnserver1.conf
+port 1194
+proto udp
+dev tun
+user nobody
+group nobody
+ca /etc/openvpn/keys/ca.crt
+cert /etc/openvpn/keys/vpnserver1.crt
+key /etc/openvpn/keys/vpnserver1.key
+dh /etc/openvpn/keys/dh.pem
+tls-auth /etc/openvpn/keys/ta.key 0
+
+server 10.10.0.0 255.255.255.0
+ifconfig-pool-persist ipp.txt
+keepalive 10 120
+persist-key
+persist-tun
+
+tls-server
+remote-cert-tls client
+
+status openvpn-status.log
+verb 4
+mute 20
+explicit-exit-notify 1
+```
+
+_Пример настроек клиента:_
+
+```ruby
+# vpnclient1.conf
+client
+dev tun
+proto udp
+remote server1 1194
+
+persist-key
+persist-tun
+resolv-retry infinite
+nobind
+
+user nobody
+group nobody
+tls-client
+remote-cert-tls server
+verb 4
+
+ca /etc/openvpn/keys/ca.crt
+cert /etc/openvpn/keys/vpnclient1.crt
+key /etc/openvpn/keys/vpnclient1.key
+tls-auth /etc/openvpn/keys/ta.key 1
+```
+
+Запустите OpenVPN на обоих хостах с помощью команды openvpn:
+
+```ruby
+sudo openvpn /etc/openvpn/vpnserver1.conf
+sudo openvpn /etc/openvpn/vpnclient1.conf
+```
+
+Вот и все! Вывод команд подтверждает, что настройки верны и между хостами успешно установлено соединение. Для остановки нажмите Ctrl+C на обоих хостах.
+
