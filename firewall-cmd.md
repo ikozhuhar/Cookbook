@@ -51,4 +51,17 @@ sudo firewall-cmd --list-rich-rules
 Если нужно открыть несколько портов для одного IP, добавьте каждое правило отдельно или используйте --add-service (если порты описаны в сервисе).
 ```
 
+```ruby
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="185.66.85.0/24" port port="80,443" protocol="tcp" accept'
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="185.66.86.0/24" port port="80,443" protocol="tcp" accept'
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="185.35.5.0/24" port port="80,443" protocol="tcp" accept'
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="185.35.6.0/24" port port="80,443" protocol="tcp" accept'
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="109.238.89.0/24" port port="80,443" protocol="tcp" accept'
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="89.20.63.0/24" port port="80,443" protocol="tcp" accept'
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="185.63.60.0/22" port port="22" protocol="tcp" accept'
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="185.63.60.0/22" accept'
+sudo firewall-cmd --set-default-zone=drop
+sudo firewall-cmd --reload
+```
+
 [Установка и настройка Firewalld](https://blog.sedicomm.com/2017/04/17/ustanovka-i-nastrojka-firewalld/)
