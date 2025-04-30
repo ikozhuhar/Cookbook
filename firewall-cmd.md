@@ -61,6 +61,7 @@ sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="185.63.60.0/22" port port="22" protocol="tcp" accept'
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="185.63.60.0/22" accept'
 sudo firewall-cmd --set-default-zone=drop
+sudo firewall-cmd --list-rich-rules
 sudo firewall-cmd --reload
 ```
 
