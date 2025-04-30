@@ -40,7 +40,7 @@ sudo firewall-cmd --reload
 ```
  
  
- #### Как с помощью firewall-cmd открыть доступ конкретному адресу по конкрентому порту
+#### Как с помощью firewall-cmd открыть доступ конкретному адресу по конкрентому порту
  
 ```ruby
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="192.168.1.100" port port="22" protocol="tcp" accept'
@@ -60,6 +60,14 @@ sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="89.20.63.0/24" port port="80,443" protocol="tcp" accept'
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="185.63.60.0/22" port port="22" protocol="tcp" accept'
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="185.63.60.0/22" accept'
+sudo firewall-cmd --set-default-zone=drop
+sudo firewall-cmd --reload
+```
+
+
+#### Запретить любой трафик
+
+```ruby
 sudo firewall-cmd --set-default-zone=drop
 sudo firewall-cmd --reload
 ```
