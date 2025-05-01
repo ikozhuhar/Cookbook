@@ -74,4 +74,102 @@ sudo firewall-cmd --reload
 ```
 
 
+<br>
+
+
+```ruby
+# 1. Проверить текущую активную зону
+sudo firewall-cmd --get-active-zones
+
+# 2. Удаляем все сервисы из зоны если они есть
+sudo firewall-cmd --zone=public --remove-service=http --permanent
+sudo firewall-cmd --zone=public --remove-service=https --permanent
+# и другие сервисы, если нужно
+
+# 3. Открываем для одного IP
+sudo firewall-cmd --zone=public --add-rich-rule='rule family="ipv4" source address="192.168.1.100" port protocol="tcp" port="80" accept' --permanent
+sudo firewall-cmd --reload
+
+# 4. Запретить все входящие в зону public
+sudo firewall-cmd --zone=public --set-target=DROP --permanent
+
+# 5. Перезагрузка
+sudo firewall-cmd --reload
+
+# 6. Проверка
+sudo firewall-cmd --zone=public --list-all
+```
+
+
+
+```ruby
+# 1. Просмотр всех интерфейсов и их зон
+sudo firewall-cmd --get-active-zones
+
+# 2. Узнать зону конкретного интерфейса
+sudo firewall-cmd --get-zone-of-interface=eth0
+
+# 3. Просмотр всех зон и их правил
+sudo firewall-cmd --list-all-zones
+
+# 4. Список все зон
+sudo firewall-cmd --get-zones
+
+# 5. Изменение зоны интерфейса
+sudo firewall-cmd --zone=<новая_зона> --change-interface=<интерфейс> --permanent
+
+# Пример: перемещаем eth0 в зону  internal
+sudo firewall-cmd --zone=internal --change-interface=eth0 --permanent
+
+# 6. Применяем
+sudo firewall-cmd --reload
+
+# 7. Проверяем
+sudo firewall-cmd --reload
+```
+
+
+```ruby
+
+# 1. Какие интерфейсы привязаны к зоне
+sudo firewall-cmd --zone=<зона> --list-interfaces
+
+# 2. Удалить интерфейс из зоны
+sudo firewall-cmd --zone=<зона> --remove-interface=<интерфейс> --permanent
+
+# 3. Добавить интерфейс в зону
+sudo firewall-cmd --zone=<зона> --add-interface=<интерфейс> --permanent
+```
+
+
+```ruby
+
+# 1. Смотрим зоны
+sudo firewall-cmd --get-zones
+
+# 2. Смотрим правила зон
+sudo firewall-cmd --list-all-zones
+
+# 3. Смотрим активную зону
+sudo firewall-cmd --get-active-zones
+
+# 4. Смотрим в какой зоне интерфейс
+sudo firewall-cmd --get-zone-of-interface=eth0
+
+# 5. Меняем зону интерфейса
+sudo firewall-cmd --zone=<новая_зона> --change-interface=<интерфейс> --permanent
+
+# 6. Удаляем интерфейс из зоны
+sudo firewall-cmd --zone=<зона> --remove-interface=<интерфейс> --permanent
+
+# 7. Политика зоны по умолчанию. Запрещенно все, что явно не разрешено: 
+sudo firewall-cmd --zone=public --set-target=DROP --permanent
+
+# 8. Добавить интерфейс в зону
+sudo firewall-cmd --zone=<зона> --add-interface=<интерфейс> --permanent
+
+# 9. Проверка
+sudo firewall-cmd --zone=public --list-all
+```
+
 [Установка и настройка Firewalld](https://blog.sedicomm.com/2017/04/17/ustanovka-i-nastrojka-firewalld/)
