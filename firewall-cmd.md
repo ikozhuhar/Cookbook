@@ -73,4 +73,5 @@ sudo firewall-cmd --set-default-zone=drop
 sudo firewall-cmd --reload
 ```
 
+
 [Установка и настройка Firewalld](https://blog.sedicomm.com/2017/04/17/ustanovka-i-nastrojka-firewalld/)
