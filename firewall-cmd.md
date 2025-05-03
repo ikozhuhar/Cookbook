@@ -40,7 +40,7 @@ sudo firewall-cmd --reload
 ```
  
  
-#### Как с помощью firewall-cmd открыть доступ конкретному адресу по конкрентому порту
+#### :sparkles: Как с помощью firewall-cmd открыть доступ конкретному адресу по конкрентому порту
  
 ```ruby
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="192.168.1.100" port port="22" protocol="tcp" accept'
