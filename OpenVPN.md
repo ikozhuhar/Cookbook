@@ -94,20 +94,21 @@ Fedora и Ubuntu помещают все файлы EasyRSA в рабочий к
 ```ruby
 # Вы можете установить пакет easy-rsa
 apt install easy-rsa
+```
+![image](https://github.com/user-attachments/assets/e7e089cb-9e04-4caf-bf06-f1c4d8a6c7b5)
+![image](https://github.com/user-attachments/assets/dd94ea75-d94c-4115-add6-a3f403be0b37)
+![image](https://github.com/user-attachments/assets/5a812b04-ecc1-42c0-8af7-ce3b553bcf66)
 
+```ruby
 # Каталог для хранения инфраструктуры открытых ключей
 mkdir mypki
 
 # скопируйте каталог /usr/share/easy-rsa в созданный вами каталог:
 sudo cp -r /usr/share/easy-rsa mypki
 ```
+![image](https://github.com/user-attachments/assets/9307b8b3-79d4-47dc-b61a-f47cd5619cac)
 
-![image](https://github.com/user-attachments/assets/e7e089cb-9e04-4caf-bf06-f1c4d8a6c7b5)
-![image](https://github.com/user-attachments/assets/dd94ea75-d94c-4115-add6-a3f403be0b37)
-![image](https://github.com/user-attachments/assets/5a812b04-ecc1-42c0-8af7-ce3b553bcf66)
-
-
-
+![image](https://github.com/user-attachments/assets/f9e8e1eb-d91a-41d1-ae2d-08d567f65992)
 
 В результате будет создан каталог `mypki/easy-rsa`. Проверьте его разрешения; владельцами всего, что находится в этом каталоге, должны быть вы и ваша группа.
 
