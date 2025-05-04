@@ -244,7 +244,7 @@ _Пример настроек клиента:_
 client
 dev tun
 proto udp
-remote server1 1194
+remote 192.168.50.133 1194
 
 persist-key
 persist-tun
