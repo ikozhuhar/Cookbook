@@ -150,7 +150,7 @@ cd ~/mypki/easy-rsa
 Сгенерируйте запрос на СОЗДАНИЕ пары ключей и подписание сертификата для вашего СЕРВЕРА OpenVPN. Обычно не принято добавлять парольную фразу в закрытый ключ сервера, но вы можете защитить его паролем, если хотите, опустив параметр nopass. Парольная фраза обеспечивает надежную защиту, но тогда вам придется вводить ее каждый раз при перезапуске сервера:
 
 ```ruby
-easyrsa gen-req vpnserver1 nopass
+./easyrsa gen-req vpnserver1 nopass
 ```
 
 ![image](https://github.com/user-attachments/assets/f9c25f02-f3fc-4764-ac73-569ca3f27c59)
@@ -159,7 +159,7 @@ easyrsa gen-req vpnserver1 nopass
 Сгенерируйте запрос на создание пары ключей и подписание сертификата для клиента.
 
 ```ruby
-easyrsa gen-req vpnclient1
+./easyrsa gen-req vpnclient1
 ```
 
 ![image](https://github.com/user-attachments/assets/dcf2adfc-9fa8-40c3-b7cc-6b3cfb43ac9a)
@@ -168,15 +168,32 @@ easyrsa gen-req vpnclient1
 Подпишите запросы, используя общие имена (Common Name) сервера и клиента. Используйте только имена; если вы введете их пути, то это приведет к ошибке:
 
 ```ruby
-easyrsa sign-req server vpnserver1
-easyrsa sign-req client vpnclient1
+./easyrsa sign-req server vpnserver1
+./easyrsa sign-req client vpnclient1
 ```
+
+![image](https://github.com/user-attachments/assets/fb27c7df-d5c5-4e38-960a-453ccfa30b76)
+![image](https://github.com/user-attachments/assets/2165a84a-e888-428e-8fe3-8da3961962ea)
+
+
+Сгенерируйте параметры протокола Диффи — Хеллмана (Diffie — Hellman) для сервера; это займет минуту или две. Данная команда должна запускаться на сервере OpenVPN:
+
+```ruby
+./easyrsa gen-dh
+```
+
+![image](https://github.com/user-attachments/assets/d770cec2-c7b1-48ae-a215-3708595c3f4a)
+![image](https://github.com/user-attachments/assets/446e27b8-8d2f-4b22-a1be-5f11403f7bd4)
+
 
 Создайте на сервере ключ HMAC (Hash-based Message Authentication Code — код аутентификации сообщения на основе хеш-функции):
 
 ```ruby
-openvpn --genkey --secret ta.key
+openvpn --genkey secret ta.key
 ```
+
+![image](https://github.com/user-attachments/assets/4c813a52-d0b2-41ee-abcd-f2507d298c2c)
+
 
 - Скопируйте vpnclient1.key, vpnclient1.crt, ca.crt и ta.key в каталог `/etc/openvpn/keys` на машине `client1`.
 - Скопируйте vpnserver1.key, vpnserver1.crt, ca.crt, dh.pem и ta.key в каталог `/etc/openvpn/keys` на машине `server1`.
