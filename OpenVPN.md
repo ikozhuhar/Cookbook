@@ -153,11 +153,17 @@ cd ~/mypki/easy-rsa
 easyrsa gen-req vpnserver1 nopass
 ```
 
+![image](https://github.com/user-attachments/assets/f9c25f02-f3fc-4764-ac73-569ca3f27c59)
+
+
 Сгенерируйте запрос на создание пары ключей и подписание сертификата для клиента.
 
 ```ruby
 easyrsa gen-req vpnclient1
 ```
+
+![image](https://github.com/user-attachments/assets/dcf2adfc-9fa8-40c3-b7cc-6b3cfb43ac9a)
+
 
 Подпишите запросы, используя общие имена (Common Name) сервера и клиента. Используйте только имена; если вы введете их пути, то это приведет к ошибке:
 
