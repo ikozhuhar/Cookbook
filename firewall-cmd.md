@@ -8,6 +8,7 @@ Firewalld использует зоны для управления уровне
 - Какие сервисы разрешены.
 - Какие правила (rules) применяются.
 
+```ruby
 # Список всех доступных зон
 firewall-cmd --get-zones	
 
@@ -26,12 +27,13 @@ firewall-cmd --zone=public --list-all
 # Изменение зоны по умолчанию
 sudo firewall-cmd --permanent --set-default-zone=home
 sudo firewall-cmd --reload
-
+```
 
 
 
 ### Как изменить зону для сетевого интерфейса в firewalld
 
+```ruby
 # Проверить текущую зону интерфейса
 firewall-cmd --get-active-zones
 
@@ -43,7 +45,7 @@ sudo firewall-cmd --reload
 # Проверить, что зона изменилась
 firewall-cmd --get-active-zones
 firewall-cmd --get-zone-of-interface=wlp4s0
-
+```
 
 
 ### Как назначить политику по умолчанию для зоны в firewalld
