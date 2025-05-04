@@ -143,7 +143,6 @@ cd ~/mypki/easy-rsa
 
 ![image](https://github.com/user-attachments/assets/fa7079a2-8dc6-4005-a060-3ca13a6496d7)
 ![image](https://github.com/user-attachments/assets/259b95a4-ee1f-4b6c-b97f-3b0f10cf6b9f)
-![image](https://github.com/user-attachments/assets/6a560535-583b-4422-aded-c123d0462c96)
 ![image](https://github.com/user-attachments/assets/cb6e021d-9b08-4d03-aa12-b0d93b6c5d49)
 
 
