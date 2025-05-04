@@ -1,5 +1,128 @@
 ### firewall-cmd
 
+### Что такое зона (zone) в firewalld?
+
+Firewalld использует зоны для управления уровнем доверия к сетевым интерфейсам. Каждая зона определяет:
+
+- Какие порты открыты.
+- Какие сервисы разрешены.
+- Какие правила (rules) применяются.
+
+# Список всех доступных зон
+firewall-cmd --get-zones	
+
+# Показать, какие зоны сейчас активны и к каким интерфейсам привязаны
+firewall-cmd --get-active-zones
+
+#  Показывает текущую зону по умолчанию
+firewall-cmd --get-default-zone
+
+# Изменить зону по умолчанию (напр., на home)
+firewall-cmd --set-default-zone=home
+
+# Показать правила конкретной зоны (public)
+firewall-cmd --zone=public --list-all	
+
+# Изменение зоны по умолчанию
+sudo firewall-cmd --permanent --set-default-zone=home
+sudo firewall-cmd --reload
+
+
+
+
+### Как изменить зону для сетевого интерфейса в firewalld
+
+# Проверить текущую зону интерфейса
+firewall-cmd --get-active-zones
+
+# Изменить зону интерфейса
+sudo firewall-cmd --permanent --zone=НоваяЗона --change-interface=Интерфейс
+sudo firewall-cmd --permanent --zone=trusted --change-interface=wlp4s0
+sudo firewall-cmd --reload
+
+# Проверить, что зона изменилась
+firewall-cmd --get-active-zones
+firewall-cmd --get-zone-of-interface=wlp4s0
+
+
+
+### Как назначить политику по умолчанию для зоны в firewalld
+
+В `firewalld` можно настроить действие по умолчанию для входящего (`input`), исходящего (`output`) и пересылаемого (`forward`) трафика в конкретной зоне. Это полезно, если нужно:
+
+- **Блокировать все входящие подключения**, кроме разрешённых правил (`DROP/REJECT`).
+- **Разрешить весь трафик** в доверенной зоне (`ACCEPT`).
+
+```ruby
+# Проверить текущие политики зоны
+sudo firewall-cmd --zone=Зона --list-all
+```
+
+**Доступные политики (target) для зоны**
+
+```ruby
+# Стандартное поведение (зависит от зоны: REJECT для public, ACCEPT для trusted)
+default	
+
+# Разрешает весь трафик, даже если нет явных правил (опасно для public!)
+ACCEPT	
+
+# Тихий сброс пакетов без уведомления (аналог iptables -P INPUT DROP)
+DROP	
+
+# Отклоняет пакеты с отправкой ICMP error (клиент видит "Connection refused")
+REJECT	
+```
+
+**Изменить политику зоны **
+
+```ruby
+# sudo firewall-cmd --zone=Зона --set-target=Политика
+
+# Запретить все входящие подключения в зоне public (кроме разрешённых в services)
+sudo firewall-cmd --permanent --zone=public --set-target=DROP
+
+# Разрешить весь трафик в зоне trusted
+sudo firewall-cmd --permanent --zone=trusted --set-target=ACCEPT
+
+# Запретить ВСЕ кроме явно разрешенного
+sudo firewall-cmd --permanent --zone=public --set-target=REJECT
+sudo firewall-cmd --reload
+```
+
+**Проверить изменения**
+
+```ruby
+sudo firewall-cmd --zone=Зона --list-all
+```
+
+**Сбросить политику на стандартную**
+
+```ruby
+# Чтобы вернуть поведение по умолчанию
+sudo firewall-cmd --permanent --zone=Зона --set-target=default
+sudo firewall-cmd --reload
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br>
+
 ```ruby
 # ДОБАВЛЕНИЕ СЕРВИСА
 firewall-cmd --get-services
