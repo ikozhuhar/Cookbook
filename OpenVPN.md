@@ -111,6 +111,7 @@ sudo cp -r /usr/share/easy-rsa mypki
 ![image](https://github.com/user-attachments/assets/f9e8e1eb-d91a-41d1-ae2d-08d567f65992)
 
 В результате будет создан каталог `mypki/easy-rsa`. Проверьте его разрешения; **_владельцами всего_**, что находится в этом каталоге, **_должны быть вы и ваша группа_**.
+
 ![image](https://github.com/user-attachments/assets/27ff6e11-7889-4f98-8aa3-48e60a81cef7)
 
 Комментарий
