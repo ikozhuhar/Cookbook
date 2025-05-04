@@ -76,7 +76,7 @@ DROP
 REJECT	
 ```
 
-**Изменить политику зоны **
+**Изменить политику зоны**
 
 ```ruby
 # sudo firewall-cmd --zone=Зона --set-target=Политика
