@@ -1,4 +1,4 @@
-### firewall-cmd
+## firewalld
 
 ### Что такое зона (zone) в firewalld?
 
