@@ -106,7 +106,7 @@ sudo firewall-cmd --permanent --zone=Зона --set-target=default
 sudo firewall-cmd --reload
 ```
 
-** Настройка и удаление правил**
+**Настройка и удаление правил**
 
 ```ruby
 # Назначить правило
