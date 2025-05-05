@@ -106,6 +106,15 @@ sudo firewall-cmd --permanent --zone=Зона --set-target=default
 sudo firewall-cmd --reload
 ```
 
+** Настройка и удаление правил**
+
+```ruby
+# Назначить правило
+firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="192.168.11.124" port port="22" protocol="tcp" drop'
+
+# Удалить правило
+sudo firewall-cmd --permanent --remove-rich-rule='rule family="ipv4" source address="192.168.11.124" port port="22" protocol="tcp" drop'
+```
 
 
 
