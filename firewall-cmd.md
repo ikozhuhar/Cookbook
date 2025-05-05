@@ -110,9 +110,11 @@ sudo firewall-cmd --reload
 
 ```ruby
 # Назначить правило
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -s 172.16.1.100 -j DROP
 firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="192.168.11.124" port port="22" protocol="tcp" drop'
 
 # Удалить правило
+firewall-cmd --permanent --direct --remove-rule ipv4 filter INPUT 0 -s 172.16.1.100 -j DROP
 sudo firewall-cmd --permanent --remove-rich-rule='rule family="ipv4" source address="192.168.11.124" port port="22" protocol="tcp" drop'
 ```
 
