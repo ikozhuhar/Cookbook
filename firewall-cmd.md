@@ -1,4 +1,4 @@
-## firewalld
+## Firewalld
 
 ### Что такое зона (zone) в firewalld?
 
