@@ -399,3 +399,5 @@ f3b435345e02aede049ef7c9f1c2704f
 Подробнее: Linux книга рецептов. Карла Шрёдер, стр. 365
 ```
 
+[Документация для OpenVPN](https://openvpn.net/community-resources/)
+
