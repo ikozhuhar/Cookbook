@@ -92,6 +92,10 @@ sudo firewall-cmd --permanent --remove-service=samba-client --zone=public
 # Добавить поддержку службы LDAPS
 sudo firewall-cmd --permanent --zone=internal --add-service=ldaps
 
+# rich rules — собственные правила
+sudo firewall-cmd --zone=block --permanent --add-rich-rule='rule family="ipv4" source address="192.168.11.0/24" port port="22" protocol="tcp" accept'
+sudo firewall-cmd --zone=block --permanent --remove-rich-rule='rule family="ipv4" source address="192.168.11.0/24" port port="22" protocol="tcp" accept'
+
 # Сохранение временных правил
 sudo firewall-cmd --runtime-to-permanent
 
