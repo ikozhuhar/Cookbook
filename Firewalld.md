@@ -68,6 +68,40 @@ sudo firewall-cmd --runtime-to-permanent
 ```
 
 
+### Изменение зоны firewalld по умолчанию
+
+```ruby
+# Проверьте, какая зона используется по умолчанию
+firewall-cmd --get-default-zone
+
+# Допустим, вы решили использовать зону drop, как наиболее ограничивающую
+sudo firewall-cmd --set-default-zone drop
+
+# После выполнения этой команды не требуется перезагружать или перезапускать firewalld.
+```
+
+### Настройка зон firewalld
+
+```ruby
+# Смотрим текущие настройки зоны
+firewall-cmd --zone=internal --list-all
+
+# Убрать поддержку samba-client
+sudo firewall-cmd --permanent --remove-service=samba-client --zone=public
+
+# Добавить поддержку службы LDAPS
+sudo firewall-cmd --permanent --zone=internal --add-service=ldaps
+
+# Сохранение временных правил
+sudo firewall-cmd --runtime-to-permanent
+
+sudo firewall-cmd --reload
+```
+
+**Комментарий**
+
+Параметр `--reload` не разрывает уже имеющихся активных соединений. Параметр `--complete-reload` перезапускает `firewalld` и перезагружает модули ядра, вследствие чего имеющиеся активные соединения разрываются. **Это хороший вариант для случаев, когда временные изменения настолько запутанны, что было бы желательно начать все сначала**.
+
 
 <br><br><br>
 
