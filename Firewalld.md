@@ -147,8 +147,8 @@ sudo firewall-cmd --zone=names --list-all
 ### Команды для управления интерфейсами
 
 ```ruby
-# 1. Добавление интерфейса в зону
-sudo firewall-cmd --zone=public --add-interface=eth0
+# 1. Просмотр зоны, к которой принадлежит интерфейс
+sudo firewall-cmd --get-zone-of-interface=eth0
 
 # 2. Удаление интерфейса из зоны
 sudo firewall-cmd --zone=public --remove-interface=eth0
@@ -159,8 +159,8 @@ sudo firewall-cmd --zone=work --change-interface=eth0
 # 4. Просмотр интерфейсов в зоне
 sudo firewall-cmd --zone=public --list-interfaces
 
-# 5. Просмотр зоны, к которой принадлежит интерфейс
-sudo firewall-cmd --get-zone-of-interface=eth0
+# 5. Добавление интерфейса в зону
+sudo firewall-cmd --zone=public --add-interface=eth0
 
 # 6. Установка интерфейса в доверенную зону (permanent)
 sudo firewall-cmd --permanent --zone=trusted --add-interface=eth0
