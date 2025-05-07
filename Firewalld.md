@@ -185,6 +185,8 @@ sudo firewall-cmd --reload
 - `--permanent` — применяет настройки постоянно (требует `--reload`).
 - `firewall-cmd --reload` — перезагружает правила без разрыва текущих соединений.
 - Имена интерфейсов можно проверить через `ip a` или `nmcli device status`.
+```
+
 <br><br><br>
 
 
