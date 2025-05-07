@@ -179,13 +179,14 @@ sudo firewall-cmd --zone=drop --add-interface=eth0
 # 10. Постоянное назначение интерфейса (сохраняется после перезагрузки)
 sudo firewall-cmd --permanent --zone=internal --add-interface=eth1
 sudo firewall-cmd --reload
+```
 
 **Примечания:**
 
 - `--permanent` — применяет настройки постоянно (требует `--reload`).
 - `firewall-cmd --reload` — перезагружает правила без разрыва текущих соединений.
 - Имена интерфейсов можно проверить через `ip a` или `nmcli device status`.
-```
+
 
 <br><br><br>
 
