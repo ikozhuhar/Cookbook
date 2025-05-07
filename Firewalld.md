@@ -124,7 +124,9 @@ sudo firewall-cmd --reload
  <service name="dhcp"/>
  <service name="ssh"/>
 </zone>
+```
 
+```ruby
 # Проверяем появление новой зоны
 sudo firewall-cmd --permanent --get-zones
 
