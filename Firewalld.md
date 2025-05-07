@@ -8,6 +8,93 @@ Firewalld использует зоны для управления уровне
 - Какие сервисы разрешены.
 - Какие правила (rules) применяются.
 
+<br>
+
+### Вывод списка всех зон и всех служб, управляемых каждой зоной
+
+```ruby
+# Список всех зон
+sudo firewall-cmd --get-zones
+
+# Зона по умолчанию
+sudo firewall-cmd --get-default-zone
+
+# Список всех активных зон — зон, используемых в текущий момент
+sudo firewall-cmd --get-active-zones
+
+# Настройки одной зоны
+sudo firewall-cmd --zone=public --list-all
+
+# Настройки всех зон
+sudo firewall-cmd --list-all-zones
+```
+
+
+
+### Ввод списка поддерживаемых служб
+
+```ruby
+sudo firewall-cmd --get-services
+sudo firewall-cmd --get-services| xargs -n1
+
+sudo firewall-cmd --info-service bittorrent-lsd
+sudo firewall-cmd --info-service ceph-mon
+```
+
+
+
+### Выбор и настройка зоны
+
+```ruby
+# Настройки зоны work
+sudo firewall-cmd --zone=work --list-all
+
+# rich rules — собственные правила
+sudo firewall-cmd --zone=block --permanent --add-rich-rule='rule family="ipv4" source address="192.168.11.0/24" port port="22" protocol="tcp" accept'
+sudo firewall-cmd --zone=block --permanent --remove-rich-rule='rule family="ipv4" source address="192.168.11.0/24" port port="22" protocol="tcp" accept'
+
+# Добавить/Удалить сервис
+sudo firewall-cmd --permanent --zone=block --add-service=ssh
+sudo firewall-cmd --permanent --zone=block --remove-service=ssh
+
+# Привязка зоны к сетевому интерфейсу. После привязки зоны к сетевому интерфейсу нет необходимости перезагружать конфигурацию или перезапускать firewalld
+sudo firewall-cmd --zone=work --permanent --change-interface=eth0
+
+# Проверяем как прошла привязка интерфейса
+sudo firewall-cmd --zone=work --list-interfaces
+
+# Преобразуйте временные изменения в постоянные при необходимости
+sudo firewall-cmd --runtime-to-permanent
+```
+
+
+
+<br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```ruby
 # Список всех доступных зон
 firewall-cmd --get-zones	
