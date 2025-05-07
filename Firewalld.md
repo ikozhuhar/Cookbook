@@ -140,6 +140,49 @@ sudo firewall-cmd --zone=names --list-all
 
 Чтобы удалить зону, удалите ее файл `.xml`, а затем перезагрузите `firewalld`.
 
+
+
+### Команды для управления интерфейсами
+
+```ruby
+# 1. Добавление интерфейса в зону
+sudo firewall-cmd --zone=public --add-interface=eth0
+
+# 2. Удаление интерфейса из зоны
+sudo firewall-cmd --zone=public --remove-interface=eth0
+
+# 3. Изменение зоны интерфейса
+sudo firewall-cmd --zone=work --change-interface=eth0
+
+# 4. Просмотр интерфейсов в зоне
+sudo firewall-cmd --zone=public --list-interfaces
+
+# 5. Просмотр зоны, к которой принадлежит интерфейс
+sudo firewall-cmd --get-zone-of-interface=eth0
+
+# 6. Установка интерфейса в доверенную зону (permanent)
+sudo firewall-cmd --permanent --zone=trusted --add-interface=eth0
+sudo firewall-cmd --reload
+
+# 7. Полный список интерфейсов и их зон
+sudo firewall-cmd --list-all-zones | grep -E "zone|interfaces"
+
+# 8. Сброс привязки интерфейсов (очистка)
+sudo firewall-cmd --zone=public --remove-interface=eth0 --permanent
+sudo firewall-cmd --reload
+
+# 9. Временное отключение firewalld для интерфейса
+sudo firewall-cmd --zone=drop --add-interface=eth0
+
+# 10. Постоянное назначение интерфейса (сохраняется после перезагрузки)
+sudo firewall-cmd --permanent --zone=internal --add-interface=eth1
+sudo firewall-cmd --reload
+
+**Примечания:**
+
+- `--permanent` — применяет настройки постоянно (требует `--reload`).
+- `firewall-cmd --reload` — перезагружает правила без разрыва текущих соединений.
+- Имена интерфейсов можно проверить через `ip a` или `nmcli device status`.
 <br><br><br>
 
 
