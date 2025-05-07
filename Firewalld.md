@@ -109,6 +109,37 @@ sudo firewall-cmd --reload
 
 ### Создание новой зоны
 
+Создайте XML-файл с настройками зоны, затем перезагрузите брандмауэр `firewalld`, и он будет готов к использованию новой зоны.
+
+Следующий пример создает зону для локальных служб имен с серверами DNS и DHCP на одном компьютере с доступом по SSH. Настройки сохраняются в файле `/etc/firewalld/zones/names.xml`:
+
+```ruby
+<?xml version="1.0" encoding="utf-8"?>
+<zone>
+ <short>Name Services</short>
+ <description>
+ DNS and DHCP servers for the local network, IPv4 only.
+ </description>
+ <service name="dns"/>
+ <service name="dhcp"/>
+ <service name="ssh"/>
+</zone>
+
+# Проверяем появление новой зоны
+sudo firewall-cmd --permanent --get-zones
+
+# Перезагрузите firewalld
+sudo firewall-cmd --reload
+
+# Теперь новая зона присутствует в общем списке
+sudo firewall-cmd --get-zones
+
+# Вывести
+sudo firewall-cmd --zone=names --list-all
+```
+
+Чтобы удалить зону, удалите ее файл `.xml`, а затем перезагрузите `firewalld`.
+
 <br><br><br>
 
 
