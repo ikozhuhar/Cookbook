@@ -188,6 +188,14 @@ sudo firewall-cmd --reload
 - Имена интерфейсов можно проверить через `ip a` или `nmcli device status`.
 
 
+
+### Блокировка и разблокировка конкретных портов
+
+```ruby
+sudo firewall-cmd --zone=work --add-port=2022/tcp
+sudo firewall-cmd --zone=work --remove-port=22/tcp
+```
+
 <br><br><br>
 
 
