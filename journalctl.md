@@ -5,6 +5,7 @@
 sudo journalctl -r
 ```
 
+```ruby
 # Просмотрите самые последние записи с пояснительными сообщениями
 sudo journalctl -ex | less
 ```
