@@ -134,6 +134,13 @@ grub> linux /boot/vmlinuz-5.3.18-lp152.57-default root=/dev/sda2
 grub> initrd /boot/initrd-5.3.18-lp152.57-default
 grub> boot
 
+grub> ls -l
+grub> ls -l (hd0,gpt1)/
+grub> set root=(hd0,gpt2)
+grub> linux /vmlinuz-6.1.90-1-generic root=/dev/mapper/vg0-lv01
+grub> initrd /initrd.img-6.1.90-1-generic
+grub> boot
+
 # Ядро Linux
 vmlinuz-5.3.18-lp152.57-default
 # Временная корневая файловая система, используемая только в начале запуска системы.
