@@ -141,6 +141,12 @@ grub> linux /vmlinuz-6.1.90-1-generic root=/dev/mapper/vg0-lv01
 grub> initrd /initrd.img-6.1.90-1-generic
 grub> boot
 
+# Если попали в initramfs это значит, что система не смогла определить где корневая файловая система. Ищем
+(initramfs)lsblk
+(initramfs)blkid
+(initramfs)lvm lvscan
+(initramfs)lvm pvscan
+
 # Ядро Linux
 vmlinuz-5.3.18-lp152.57-default
 # Временная корневая файловая система, используемая только в начале запуска системы.
