@@ -66,8 +66,8 @@ WantedBy=timers.target
 :white_check_mark: Активируем
 
 ```bash
-sudo systemctl daemon-reexec
-sudo systemctl daemon-reload
+sudo systemctl daemon-reexec # перезапускает демон systemd, но расписание таймера сохраняется
+sudo systemctl daemon-reload # перечитывает конфиги, но не влияет на уже запланированные таймеры
 sudo systemctl enable --now clean-server.timer
 ```
 
