@@ -54,7 +54,7 @@ ExecStart=/usr/local/bin/clean-server.sh
 Description=Таймер для еженедельной очистки сервера
 
 [Timer]
-OnCalendar=Sun 02:00
+OnCalendar=Wed 09:00
 Persistent=true
 
 [Install]
