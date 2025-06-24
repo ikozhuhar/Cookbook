@@ -38,7 +38,7 @@ rm -rf /var/log/server-cleanup.log
 
 :white_check_mark: Создадим юнит для сервиса: `nano /etc/systemd/system/clean-server.service`
 
-```bash
+```perl
 [Unit]
 Description=Автоматическая еженедельная очистка сервера
 
