@@ -1,0 +1,88 @@
+## Как очистить сервер от мусора
+
+**Как это работает?** 
+
+Таймер `clean-server.timer` ищет сервис с таким же именем, но с расширением `.service` вместо `.timer`. `clean-server.timer` → автоматически связывается с `clean-server.service`. Если имена разные, можно явно указать, какой сервис запускать, добавив в секцию `[Timer]`: `Unit=my-custom-service.service`
+
+
+Скрипт: /usr/local/bin/clean-server.sh
+
+```bash
+#!/bin/bash
+
+LOG_FILE="/var/log/server-cleanup.log"
+echo "[$(date)] Очистка начата" >> "$LOG_FILE"
+echo "" >> "$LOG_FILE"
+
+echo "Удаления .log-файлов старше 7 дней" >> "$LOG_FILE"
+find /var/log -type f -name "*.log" -mtime +7 -delete >> "$LOG_FILE" 2>&1
+echo "" >> "$LOG_FILE"
+
+echo "Очистить systemd-журналы" >> "$LOG_FILE"
+journalctl --vacuum-time=7d >> "$LOG_FILE" 2>&1
+echo "" >> "$LOG_FILE"
+
+echo "Очистить временные файлы" >> "$LOG_FILE"
+rm -rf /tmp/* /var/tmp/* >> "$LOG_FILE" 2>&1
+echo "" >> "$LOG_FILE"
+
+echo "Очистить кэш и мусор после установки пакетов" >> "$LOG_FILE"
+apt clean && apt autoremove -y >> "$LOG_FILE" 2>&1
+echo "" >> "$LOG_FILE"
+
+echo "[$(date)] Очистка завершена" >> "$LOG_FILE"
+rm -rf /var/log/server-cleanup.log
+```
+
+
+Создадим юнит для сервиса: $ nano /etc/systemd/system/clean-server.service
+
+```bash
+[Unit]
+Description=Автоматическая еженедельная очистка сервера
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/clean-server.sh
+```
+
+
+Создаем таймер: nano /etc/systemd/system/clean-server.timer
+
+```bash
+[Unit]
+Description=Таймер для еженедельной очистки сервера
+
+[Timer]
+OnCalendar=Sun 02:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+
+Активируем
+
+```bash
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable --now clean-server.timer
+```
+
+
+Можем проверить статус
+
+```bash
+systemctl list-timers | grep clean-server
+```
+
+
+И посмотреть те самые автоматические логи
+
+```bash
+systemctl status cleanup-server.timer
+journalctl -u clean-server.timer 
+journalctl -u clean-server.service
+sudo systemctl is-enabled clean-server.timer 
+```
