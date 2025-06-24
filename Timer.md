@@ -78,7 +78,7 @@ systemctl list-timers | grep clean-server
 ```
 
 
-И посмотреть те самые автоматические логи
+Логи
 
 ```bash
 systemctl status cleanup-server.timer
