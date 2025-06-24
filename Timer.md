@@ -10,7 +10,8 @@
 ```bash
 #!/bin/bash
 
-LOG_FILE="/var/log/clean-server/server-cleanup.log"
+CURRENT_DATE=$(date +"%Y-%m-%d")
+LOG_FILE="/var/log/clean-server/server-cleanup_${CURRENT_DATE}.log"
 echo "[$(date)] Очистка начата" >> "$LOG_FILE"
 echo "" >> "$LOG_FILE"
 
