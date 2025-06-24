@@ -50,7 +50,7 @@ ExecStart=/usr/local/bin/clean-server.sh
 
 :white_check_mark: Создаем таймер: `nano /etc/systemd/system/clean-server.timer`
 
-```bash
+```perl
 [Unit]
 Description=Таймер для еженедельной очистки сервера
 
