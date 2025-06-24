@@ -10,7 +10,7 @@
 ```bash
 #!/bin/bash
 
-LOG_FILE="/var/log/server-cleanup.log"
+LOG_FILE="/var/log/clean-server/server-cleanup.log"
 echo "[$(date)] Очистка начата" >> "$LOG_FILE"
 echo "" >> "$LOG_FILE"
 
