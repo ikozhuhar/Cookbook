@@ -38,7 +38,7 @@ rm -rf /var/log/server-cleanup.log
 
 :white_check_mark: Создадим юнит для сервиса: `nano /etc/systemd/system/clean-server.service`
 
-```perl
+```ruby
 [Unit]
 Description=Автоматическая еженедельная очистка сервера
 
@@ -50,7 +50,7 @@ ExecStart=/usr/local/bin/clean-server.sh
 
 :white_check_mark: Создаем таймер: `nano /etc/systemd/system/clean-server.timer`
 
-```perl
+```ruby
 [Unit]
 Description=Таймер для еженедельной очистки сервера
 
