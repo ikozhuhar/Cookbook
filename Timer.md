@@ -65,7 +65,7 @@ WantedBy=timers.target
 
 :white_check_mark: Активируем
 
-```bash
+```ruby
 sudo systemctl daemon-reexec # перезапускает демон systemd, но расписание таймера сохраняется
 sudo systemctl daemon-reload # перечитывает конфиги, но не влияет на уже запланированные таймеры
 sudo systemctl enable --now clean-server.timer
@@ -74,7 +74,7 @@ sudo systemctl enable --now clean-server.timer
 
 :white_check_mark: Можем проверить статус
 
-```bash
+```ruby
 systemctl list-timers | grep clean-server
 sudo systemctl is-enabled clean-server.timer
 systemctl status cleanup-server.timer
@@ -83,7 +83,7 @@ systemctl status cleanup-server.timer
 
 :white_check_mark: Логи
 
-```bash
+```ruby
 journalctl -u clean-server.timer 
 journalctl -u clean-server.service
 ```
