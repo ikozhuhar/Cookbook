@@ -5,7 +5,7 @@
 Таймер `clean-server.timer` ищет сервис с таким же именем, но с расширением `.service` вместо `.timer`. `clean-server.timer` → автоматически связывается с `clean-server.service`. Если имена разные, можно явно указать, какой сервис запускать, добавив в секцию `[Timer]`: `Unit=my-custom-service.service`
 
 
-Скрипт: /usr/local/bin/clean-server.sh
+:white_check_mark: Скрипт: /usr/local/bin/clean-server.sh
 
 ```bash
 #!/bin/bash
@@ -35,7 +35,7 @@ rm -rf /var/log/server-cleanup.log
 ```
 
 
-Создадим юнит для сервиса: $ nano /etc/systemd/system/clean-server.service
+:white_check_mark: Создадим юнит для сервиса: $ nano /etc/systemd/system/clean-server.service
 
 ```bash
 [Unit]
@@ -47,7 +47,7 @@ ExecStart=/usr/local/bin/clean-server.sh
 ```
 
 
-Создаем таймер: nano /etc/systemd/system/clean-server.timer
+:white_check_mark: Создаем таймер: nano /etc/systemd/system/clean-server.timer
 
 ```bash
 [Unit]
@@ -62,7 +62,7 @@ WantedBy=timers.target
 ```
 
 
-Активируем
+:white_check_mark: Активируем
 
 ```bash
 sudo systemctl daemon-reexec
@@ -71,7 +71,7 @@ sudo systemctl enable --now clean-server.timer
 ```
 
 
-Можем проверить статус
+:white_check_mark: Можем проверить статус
 
 ```bash
 systemctl list-timers | grep clean-server
@@ -80,7 +80,7 @@ systemctl status cleanup-server.timer
 ```
 
 
-Логи
+:white_check_mark: Логи
 
 ```bash
 journalctl -u clean-server.timer 
