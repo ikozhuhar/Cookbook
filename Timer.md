@@ -75,14 +75,14 @@ sudo systemctl enable --now clean-server.timer
 
 ```bash
 systemctl list-timers | grep clean-server
+sudo systemctl is-enabled clean-server.timer
+systemctl status cleanup-server.timer
 ```
 
 
 Логи
 
 ```bash
-systemctl status cleanup-server.timer
 journalctl -u clean-server.timer 
 journalctl -u clean-server.service
-sudo systemctl is-enabled clean-server.timer 
 ```
