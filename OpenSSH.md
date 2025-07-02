@@ -170,3 +170,34 @@ sudo fusermount -u sshfs
 
 ![image](https://github.com/user-attachments/assets/311cfce0-9b87-4b77-b08b-4e5457876405)
 
+
+
+### Ограничения в SSH-сервере (sshd_config)
+
+```ruby
+# Ограничение по пользователям
+AllowUsers administrator root  # разрешены только эти пользователи
+DenyUsers hacker              # запрещённые пользователи
+
+# Ограничение по группам
+AllowGroups ssh-users
+DenyGroups bad-users
+
+# Ограничение по IP
+ListenAddress 192.168.11.62   # слушает только этот IP (не 0.0.0.0)
+
+# Ограничение по аутентификации
+PasswordAuthentication no    # запрещён вход по паролю (только ключи)
+PermitRootLogin no           # запрещён вход под root
+PubkeyAuthentication yes     # разрешён вход по ключам
+
+# Ограничение по времени
+LoginGraceTime 30s           # время на аутентификацию
+
+# Максимальное число сессий
+MaxSessions 10               # не более 10 подключений
+MaxStartups 10:30:60         # лимит на попытки входа
+```
+
+
+
