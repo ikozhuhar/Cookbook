@@ -25,7 +25,8 @@ journalctl -n 10 -u nginx.service -f
 sudo journalctl -u mariadb.service -S today
 sudo journalctl -u ssh.service -S '1 week ago'
 sudo journalctl -u libvirtd.service -S '2021-03-05'
-sudo journalctl -u httpd.service -S '2021-03-05' -u '2021-03-09'
+sudo journalctl -u httpd.service -S '2021-03-05' -U '2021-03-09'
+sudo journalctl -u httpd.service --since='2021-03-05' --until='2021-03-09'
 sudo journalctl -u nginx.service -S '2 hours ago'
 sudo journalctl -u nginx.service -S '5 min ago'
 ```
