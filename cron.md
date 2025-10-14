@@ -27,7 +27,9 @@ chmod +x backup.sh
 
 ### Настройка скрипта для переключения сетевых служб
 
+```ruby
 sudo nano /usr/local/bin/network_switch_advanced.sh
+```
 
 ```ruby
 #!/bin/bash
@@ -64,7 +66,9 @@ fi
 log_message "Network service switch completed successfully"
 ```
 
+```ruby
 sudo crontab -e
+```
 
 ```ruby
 0 0 * * * root /usr/local/bin/network_switch_advanced.sh
