@@ -27,6 +27,8 @@ chmod +x backup.sh
 
 ### Настройка скрипта для переключения сетевых служб
 
+_network_switch_advanced.sh_
+
 ```ruby
 sudo nano /usr/local/bin/network_switch_advanced.sh
 ```
@@ -66,6 +68,8 @@ fi
 log_message "Network service switch completed successfully"
 ```
 
+_crontab_
+
 ```ruby
 sudo crontab -e
 ```
@@ -74,4 +78,9 @@ sudo crontab -e
 0 0 * * * root /usr/local/bin/network_switch_advanced.sh
 ```
 
+_sudoers_
+
+```ruby
+root ALL=(ALL) NOPASSWD: /bin/systemctl disable networking, /bin/systemctl enable systemd-networkd, /bin/systemctl start systemd-networkd, /bin/systemctl stop networking
+```
 
