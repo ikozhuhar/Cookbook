@@ -81,6 +81,9 @@ sudo crontab -e
 _sudoers_
 
 ```ruby
+# Добавьте строку (замените username на вашего пользователя):
 root ALL=(ALL) NOPASSWD: /bin/systemctl disable networking, /bin/systemctl enable systemd-networkd, /bin/systemctl start systemd-networkd, /bin/systemctl stop networking
+# Или для всех пользователей:
+%sudo ALL=(ALL) NOPASSWD: /bin/systemctl disable networking, /bin/systemctl enable systemd-networkd, /bin/systemctl start systemd-networkd, /bin/systemctl stop networking
 ```
 
