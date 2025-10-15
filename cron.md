@@ -71,7 +71,11 @@ log_message "Network service switch completed successfully"
 _crontab_
 
 ```ruby
+# Для root
 sudo crontab -e
+
+# Для конкретного пользователя (например, gitlab-adm)
+sudo crontab -u gitlab-adm -e
 ```
 
 ```ruby
