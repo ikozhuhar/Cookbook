@@ -91,3 +91,7 @@ root ALL=(ALL) NOPASSWD: /bin/systemctl disable networking, /bin/systemctl enabl
 %sudo ALL=(ALL) NOPASSWD: /bin/systemctl disable networking, /bin/systemctl enable systemd-networkd, /bin/systemctl start systemd-networkd, /bin/systemctl stop networking
 ```
 
+
+### Настроить резервное копирование баз данных PostgreSQL
+
+_crontab_
