@@ -228,7 +228,7 @@ sync_backups() {
         fi
     done
 
-    # Очищаем локальные бэкапы старше 7 дней
+    # Очищаем локальные бэкапы старше 14 дней
     log_message "Cleaning up local backups older than $LOCAL_CLEANUP_DAYS days..."
     local deleted_files=$(find "$BACKUP_DIR" -type f -name "*.sql.gz" -mtime +$LOCAL_CLEANUP_DAYS)
     if [ -n "$deleted_files" ]; then
@@ -334,7 +334,7 @@ sudo crontab -u gitlab-adm -e
 ```
 
 ```ruby
-0 0 * * * root /usr/local/bin/network_switch_advanced.sh
+0 0 * * * root /usr/local/bin/sys-atl-db_backup.sh
 ```
 
 
