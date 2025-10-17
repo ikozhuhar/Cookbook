@@ -25,7 +25,7 @@ chmod +x backup.sh
 ```
 
 
-### Настройка скрипта для переключения сетевых служб
+:white_check_mark: _Задача: <a name='1'>Настройка скрипта для переключения сетевых служб</a>._
 
 _network_switch_advanced.sh_
 
@@ -92,7 +92,9 @@ root ALL=(ALL) NOPASSWD: /bin/systemctl disable networking, /bin/systemctl enabl
 ```
 
 
-### Настроить резервное копирование баз данных PostgreSQL
+
+:white_check_mark: _Задача: <a name='1'>Настроить резервное копирование баз данных PostgreSQL</a>._
+
 
 _sys-atl-db_backup.sh_
 
