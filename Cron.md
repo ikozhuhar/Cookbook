@@ -25,6 +25,7 @@ chmod +x backup.sh
 ```
 
 
+<br>
 :white_check_mark: _Задача: <a name='1'>Настройка скрипта для переключения сетевых служб</a>._
 
 _network_switch_advanced.sh_
