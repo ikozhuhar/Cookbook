@@ -94,7 +94,7 @@ root ALL=(ALL) NOPASSWD: /bin/systemctl disable networking, /bin/systemctl enabl
 
 ### Настроить резервное копирование баз данных PostgreSQL
 
-_crontab_
+_sys-atl-db_backup.sh_
 
 ```ruby
 cat sys-atl-db_backup.sh
@@ -319,3 +319,19 @@ main() {
 # Запуск основного скрипта
 main
 ```
+
+_crontab_
+
+```ruby
+# Для root
+sudo crontab -e
+
+# Для конкретного пользователя (например, gitlab-adm)
+sudo crontab -u gitlab-adm -e
+```
+
+```ruby
+0 0 * * * root /usr/local/bin/network_switch_advanced.sh
+```
+
+
