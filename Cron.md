@@ -111,7 +111,6 @@ nano /home/admin/.pgpass
 _sys-atl-db_backup.sh_
 
 ```ruby
-cat sys-atl-db_backup.sh
 #!/bin/bash
 
 # Настройки
