@@ -102,7 +102,7 @@ root ALL=(ALL) NOPASSWD: /bin/systemctl disable networking, /bin/systemctl enabl
 _.pgpass_
 
 ```ruby
-nano .pgpass
+nano /home/admin/.pgpass
 192.168.11.141:5432:*:postgres:gX#ZTPvV4$_UnBF4~xA.
 ```
 
