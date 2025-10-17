@@ -99,6 +99,15 @@ root ALL=(ALL) NOPASSWD: /bin/systemctl disable networking, /bin/systemctl enabl
 
 :white_check_mark: _Задача: <a name='1'>Настроить резервное копирование баз данных PostgreSQL</a>._
 
+_.pgpass_
+
+```ruby
+nano .pgpass
+192.168.11.141:5432:*:postgres:gX#ZTPvV4$_UnBF4~xA.
+```
+
+
+
 _sys-atl-db_backup.sh_
 
 ```ruby
