@@ -103,6 +103,7 @@ _.pgpass_
 
 ```ruby
 nano /home/admin/.pgpass
+# localhost:5432:mydb:postgres:my_password
 192.168.11.141:5432:*:postgres:gX#ZTPvV4$_UnBF4~xA.
 ```
 
