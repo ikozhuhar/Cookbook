@@ -89,10 +89,11 @@ _**Задача**: Создание сервера резервного копи
 
 <br>
 
-## Включение и исключение с помощью файла со списком для исключения 
+## rsync
 
 ```ruby
-$ rsync --archive --verbose --comress --rsh=ssh --proqress --stats --delete /home/sam/documents/ will@wordsworth:/media/backup/documents
+$ sudo rsync --archive --verbose --comress --rsh=ssh --proqress --stats --delete /home/sam/documents/ will@wordsworth:/media/backup/documents
+$ sudo rsync -avAXHz --owner --group --perms --recursive padmin@99.124.86.65:/var/www/html/site.ru . 2>/var/log/rsync_errors.log
 
 -n (или --dry-run)
 -v (или --verbose)
@@ -106,6 +107,7 @@ $ rsync --archive --verbose --comress --rsh=ssh --proqress --stats --delete /hom
 --stats # сведения о числе переданных файлов и их общем размере.
 
 linux - карманный справочник. Скот Греннеман, стр. 443
+man rsync
 
 ```
 
