@@ -31,6 +31,7 @@ sudo -u www-data php /var/www/html/nextcloud/occ app:check-code [app_name]
 ```
 
 
+<br>
 
 :white_check_mark: _**Задача:** <a name='1'>Логи</a>._
 
@@ -129,6 +130,8 @@ sudo -u www-data php /var/www/html/nextcloud/occ log:tail --since="2 hours ago" 
 sudo grep "username" /var/www/html/nextcloud/data/nextcloud.log
 ```
 
+
+<br>
 
 :white_check_mark: _**Задача:** <a name='1'>Передача прав на папки и файлы в Nextcloud</a>._
 
