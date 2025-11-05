@@ -1,4 +1,4 @@
-### Статус
+:white_check_mark: _**Задача:** <a name='1'>Статус</a>._
 
 ```ruby
 В контексте Nextcloud под "приложениями" (apps) имеются в виду модули/расширения,
@@ -31,7 +31,8 @@ sudo -u www-data php /var/www/html/nextcloud/occ app:check-code [app_name]
 ```
 
 
-### Логи
+
+:white_check_mark: _**Задача:** <a name='1'>Логи</a>._
 
 ```ruby
 1. Основной лог-файл Nextcloud
