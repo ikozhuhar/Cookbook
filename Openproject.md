@@ -92,9 +92,7 @@ networks:
     driver: bridge
 ```
 
-<img width="1415" height="203" alt="image" src="https://github.com/user-attachments/assets/f480d357-b5f8-4647-a3e6-79998633b7f8" />
-
-<img width="1472" height="119" alt="image" src="https://github.com/user-attachments/assets/85644e5c-88d5-4ad8-a11f-58226731f215" />
+<img width="1774" height="239" alt="image" src="https://github.com/user-attachments/assets/a981afbe-570c-4566-a0ec-662d370918ac" />
 
 <img width="1788" height="147" alt="image" src="https://github.com/user-attachments/assets/4834db82-7c05-4c89-8061-2c4ad2a1fd48" />
 
