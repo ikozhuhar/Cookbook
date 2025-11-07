@@ -186,6 +186,11 @@ DenyGroups bad-users
 # Ограничение по IP
 ListenAddress 192.168.11.62   # слушает только этот IP (не 0.0.0.0)
 
+# Ограничения по клиентским IP
+AllowUsers *@192.168.11.153
+# или для конкретного пользователя
+AllowUsers username@192.168.11.153
+
 # Ограничение по аутентификации
 PasswordAuthentication no    # запрещён вход по паролю (только ключи)
 PermitRootLogin no           # запрещён вход под root
