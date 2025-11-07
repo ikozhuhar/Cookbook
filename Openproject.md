@@ -94,8 +94,9 @@ networks:
 
 ```ruby
 # Проверяем docker-compose.yml
-sudo docker-compose config
 sudo docker-compose config --help
+sudo docker-compose config
+sudo docker-compose config --quiet
 sudo docker-compose config --service
 sudo docker-compose config --volumes
 ```
