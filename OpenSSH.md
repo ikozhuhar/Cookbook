@@ -191,6 +191,10 @@ AllowUsers *@192.168.11.153
 # или для конкретного пользователя
 AllowUsers username@192.168.11.153
 
+# Match Address для более сложных правил
+Match Address 192.168.11.153
+    AllowUsers *
+
 # Ограничение по аутентификации
 PasswordAuthentication no    # запрещён вход по паролю (только ключи)
 PermitRootLogin no           # запрещён вход под root
