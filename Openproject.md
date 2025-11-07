@@ -92,6 +92,14 @@ networks:
     driver: bridge
 ```
 
+```ruby
+# Проверяем docker-compose.yml
+sudo docker-compose config
+sudo docker-compose config --help
+sudo docker-compose config --service
+sudo docker-compose config --volumes
+```
+
 <img width="1774" height="239" alt="image" src="https://github.com/user-attachments/assets/a981afbe-570c-4566-a0ec-662d370918ac" />
 
 <img width="1788" height="147" alt="image" src="https://github.com/user-attachments/assets/4834db82-7c05-4c89-8061-2c4ad2a1fd48" />
