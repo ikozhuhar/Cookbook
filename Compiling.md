@@ -110,4 +110,13 @@ sudo make install
 
 После того как компиляция закончится, в текущем каталоге появится двоичный файл, который называется htop. Его можно установить в систему; как правило, это делается автоматически:
 
+```ruby
 sudo make install
+```
+
+<img width="1807" height="385" alt="image" src="https://github.com/user-attachments/assets/ef665f9f-8249-4d33-9814-9ff7d48ad5dc" />
+
+<img width="1823" height="510" alt="image" src="https://github.com/user-attachments/assets/209741f6-831b-4d4e-b9ca-f02daab8b44a" />
+
+
+
