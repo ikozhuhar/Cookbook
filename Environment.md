@@ -136,10 +136,10 @@ echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
 ```ruby
 Переменные загружаются в следующем порядке:
 
-/etc/environment
-/etc/profile
-~/.profile или ~/.bash_profile
-~/.bashrc
+1. /etc/environment
+2. /etc/profile
+3. ~/.profile или ~/.bash_profile
+4. ~/.bashrc
 ```
 
 ### 8. Важные системные переменные
