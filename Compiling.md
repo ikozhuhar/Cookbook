@@ -23,7 +23,8 @@ sudo apt install build-essential
 sudo dpkg -l | grep build-essential
 sudo apt list | grep build-essential
 
-Установим также другие инструменты, которые нам понадобятся: wget3 — чтобы загружать файлы из интернета, и библиотеку разработки ncurses4, которая нужна программе htop для интерактивного интерфейса командной строки:
+# Установим также другие инструменты, которые нам понадобятся: wget3 — чтобы загружать файлы из интернета,
+# и библиотеку разработки ncurses, которая нужна программе htop для интерактивного интерфейса командной строки:
 
 sudo apt install wget libncurses-dev
 sudo apt install libncursesw5-dev autotools-dev autoconf automake build-essential
@@ -40,6 +41,7 @@ wget https://github.com/htop-dev/htop/releases/download/3.3.0/htop-3.3.0.tar.xz
 
 Давайте теперь убедимся, что это авторизованный выпуск: для этого мы проверим подпись, которая представляет собой просто хеш-сумму исходного кода в формате SHA-256. Загрузим файл, который содержит хеш-сумму для этого выпуска, и выведем его в терминал:
 
+```ruby
 wget https://github.com/htop-dev/htop/releases/download/3.3.0/htop3.3.0.tar.xz.sha256
 cat htop-3.3.0.tar.xz.sha256 -> 904f7d4580fc11cffc7e0f06895a4789e0c1c054435752c151e812fead9f6220  htop-3.4.1.tar.xz
 
@@ -50,7 +52,7 @@ sha256sum htop-3.4.1.tar.xz -> 904f7d4580fc11cffc7e0f06895a4789e0c1c054435752c15
 
 tar -xf htop-3.4.1.tar.xz
 cd htop-3.4.1
-
+```
 
 
 
