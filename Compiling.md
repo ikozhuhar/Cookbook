@@ -16,6 +16,7 @@
 
 Прежде всего нужно установить набор основных инструментов для разработки на C: компилятор, компоновщик, make и другие средства, которые нужны, чтобы компилировать код на C в системе Linux. В Ubuntu для этого можно установить метапакет build-essential.
 
+```ruby
 mkdir /tmp/htopbuild && cd /tmp/htopbuild
 sudo apt install build-essential
 
@@ -26,7 +27,7 @@ sudo apt list | grep build-essential
 
 sudo apt install wget libncurses-dev
 sudo apt install libncursesw5-dev autotools-dev autoconf automake build-essential
-
+```
 
 
 
