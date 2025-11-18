@@ -187,3 +187,24 @@ mount -t cifs //192.168.2.32/DWH_Portal_Statistic /mnt/DWH_Portal_Statistic -o c
 ```
 
 
+#### ✅ _Troubleshooting Summary_
+
+```ruby
+# Проверить другие доступные шары на сервере. Это покажет все доступные шары на этом сервере.
+smbclient -L 192.168.2.32 -A /root/.smbclient
+
+# Создаем тестовый файл через монтирование
+echo "test file from linux $(date)" | sudo tee /mnt/DWH_Portal_Statistic/test_linux.txt
+
+# Проверяем через smbclient
+smbclient //192.168.2.32/DWH_Portal_Statistic -A /root/.smbclient -c "ls"
+
+# Посмотрим все шары на сервере
+smbclient -L 192.168.2.32 -A /root/.smbclient
+
+# Ищем шары с похожими именами
+smbclient -L 192.168.2.32 -A /root/.smbclient | grep -i portal
+smbclient -L 192.168.2.32 -A /root/.smbclient | grep -i dwh
+```
+
+
