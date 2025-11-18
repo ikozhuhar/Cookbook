@@ -123,14 +123,14 @@ mount -t cifs //192.168.2.32/DWH_Portal_Statistic /mnt/DWH_Portal_Statistic -o c
 //192.168.2.32/DWH_Portal_Statistic /mnt/DWH_Portal_Statistic cifs credentials=/root/.smbclient,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm,rw,vers=3.0 0 0
 ```
 
-6. После добавления в /etc/fstab проверьте:
+5. После добавления в /etc/fstab проверьте:
 
 ```ruby
 mount -a
 mount | grep DWH_Portal_Statistic
 ```
 
-7. Проверим точку монтирования
+6. Проверим точку монтирования
 
 ```ruby
 ping 192.168.2.32
@@ -139,12 +139,12 @@ df -h | grep DWH_Portal_Statistic
 mount | grep DWH_Portal_Statistic
 ```
 
-8. Проверим список доступных шаров
+7. Проверим список доступных шаров
 ```ruby
 smbclient -L 192.168.2.32 -A /root/.smbclient
 ```
 
-9. Попробуем подключиться через smbclient
+8. Попробуем подключиться через smbclient
 ```ruby
 # Подключимся напрямую к шаре
 smbclient //192.168.2.32/DWH_Portal_Statistic -A /root/.smbclient
@@ -154,7 +154,7 @@ ls
 exit
 ```
 
-10. Проверим права доступа пользователя
+9. Проверим права доступа пользователя
 
 ```ruby
 # Попробуем создать тестовый файл
@@ -163,7 +163,7 @@ echo "test" > /mnt/DWH_Portal_Statistic/test_file.txt
 # Проверим, появился ли он в Windows-шаре
 ```
 
-11. Проверим логи
+10. Проверим логи
 
 ```ruby
 # Посмотрим системные логи
@@ -174,7 +174,7 @@ sudo journalctl -u systemd-fstab-generator | grep -i cifs
 cat /var/log/kern.log | grep -i cifs
 ```
 
-12. Альтернативные варианты монтирования
+11. Альтернативные варианты монтирования
 
 _Если проблема сохраняется, попробуйте:_
 
