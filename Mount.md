@@ -190,6 +190,11 @@ mount -t cifs //192.168.2.32/DWH_Portal_Statistic /mnt/DWH_Portal_Statistic -o c
 #### ✅ _Troubleshooting Summary_
 
 ```ruby
+ping 192.168.2.32
+nc -zv 192.168.2.32 445
+df -h | grep DWH_Portal_Statistic
+mount | grep DWH_Portal_Statistic
+
 # Проверить другие доступные шары на сервере. Это покажет все доступные шары на этом сервере.
 smbclient -L 192.168.2.32 -A /root/.smbclient
 
