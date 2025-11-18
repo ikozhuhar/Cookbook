@@ -1,6 +1,6 @@
 ## Монтирование удаленной папки
 
-`//khd-fs01.mip.ru/Отчеты /shared_dir/Отчеты cifs credentials=/root/.smbclient,domain=MIP,file_mode=0777,dir_mode=0777,noperm,rw 0 0`
+`//192.168.2.32/DWH_Portal_Statistic /mnt/DWH_Portal_Statistic cifs credentials=/root/.smbclient,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm,rw,vers=3.0 0 0`
 
 Краткий ответ: Эта строка предназначена для автоматического подключения (монтирования) удаленной сетевой папки `//khd-fs01.mip.ru/Отчеты` к локальной файловой системе при загрузке компьютера. Папка будет доступна в директории `/shared_dir/Отчеты`.
 
