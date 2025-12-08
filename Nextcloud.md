@@ -159,6 +159,30 @@ sudo -u www-data php occ files:transfer-ownership --path="folder_name" ncadmin u
 
 :white_check_mark: _**Задача:** <a name='1'>Критически важные настройки PHP</a>._
 
+
+_Архитектура конфигурации PHP_
+
+```ruby
+/etc/php/8.2/
+├── php.ini                   # Основной конфиг (низкий приоритет)
+├── conf.d/                   # Директория модулей (высокий приоритет)
+│   ├── 10-opcache.ini        # OPcache настройки
+│   ├── 20-curl.ini           # Расширение cURL
+│   ├── 30-mysqli.ini         # Расширение MySQLi
+│   └── ...                   # Другие расширения
+├── fpm/                      # Конфиги для PHP-FPM
+│   ├── php.ini               # FPM версия (отдельная!)
+│   └── conf.d/               # FPM модули
+└── cli/                      # Конфиги для CLI
+    ├── php.ini               # CLI версия (отдельная!)
+    └── conf.d/               # CLI модули
+
+1. php.ini                    # Базовые настройки
+2. conf.d/10-opcache.ini      # Переопределяет opcache из php.ini
+3. conf.d/20-something.ini    # Дополнительные настройки
+```
+
+
 _1. Память и лимиты_
 
 ```ruby
