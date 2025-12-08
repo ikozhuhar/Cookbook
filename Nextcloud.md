@@ -155,3 +155,94 @@ sudo -u www-data php occ files:transfer-ownership --path="folder_name" ncadmin u
 
 
 
+<br>
+
+:white_check_mark: _**Задача:** <a name='1'>Критически важные настройки PHP</a>._
+
+_1. Память и лимиты_
+
+```bash
+# В /etc/php/8.2/fpm/php.ini
+
+memory_limit = 512M              # Минимум 512М, лучше 1Г для больших установок
+post_max_size = 16G              # Должен быть ≥ максимальному размеру файла
+upload_max_filesize = 16G        # Аналогично post_max_size
+max_execution_time = 3600        # Для больших загрузок/операций
+max_input_time = 3600            # Для обработки больших запросов
+```
+
+_2. OPcache (критически важен для производительности)_
+
+```bash
+# /etc/php/8.2/fpm/conf.d/10-opcache.ini
+
+opcache.enable = 1
+opcache.memory_consumption = 256 # Минимум 256М для Nextcloud
+opcache.interned_strings_buffer = 32
+opcache.max_accelerated_files = 20000
+opcache.revalidate_freq = 3600
+opcache.fast_shutdown = 1
+opcache.save_comments = 1        # ОБЯЗАТЕЛЬНО! Nextcloud требует комментарии
+opcache.enable_file_override = 1
+```
+
+_3. PHP-FPM пул процессов_
+
+```bash
+# /etc/php/8.2/fpm/pool.d/www.conf
+
+pm = dynamic
+pm.max_children = 25             # Минимум 20-25 для средней нагрузки
+pm.start_servers = 6
+pm.min_spare_servers = 4
+pm.max_spare_servers = 12
+pm.max_requests = 5000           # Предотвращает утечки памяти
+```
+
+_Конфигурационные файлы_
+
+```bash
+# Основной php.ini. Содержит глобальные настройки, переопределяемые в пуле.
+/etc/php/8.2/fpm/php.ini
+
+# Конфигурация пула FPM. Локальные настройки для Nextcloud (память, процессы).
+/etc/php/8.2/fpm/pool.d/www.conf
+
+# OPcache настройки. Критичен для производительности.
+/etc/php/8.2/fpm/conf.d/10-opcache.ini
+```
+
+_Быстрые команды проверки_
+
+```bash
+# 1. Проверить все критические настройки
+php -i | grep -E "(memory_limit|post_max_size|upload_max_filesize|max_execution)"
+
+# 2. Проверить OPcache
+php -i | grep -E "opcache\.(enable|memory_consumption|save_comments)"
+
+# 3. Проверить настройки пула
+sudo systemctl status php8.2-fpm | grep -A 3 "Status:"
+
+# 4. Проверить расширения
+php -m | grep -E "(gd|intl|curl|xml|mbstring|zip|pgsql|opcache|apcu)"
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
