@@ -135,7 +135,7 @@ sudo grep "username" /var/www/html/nextcloud/data/nextcloud.log
 
 :white_check_mark: _**Задача:** <a name='1'>Передача прав на папки и файлы в Nextcloud</a>._
 
-```bash
+```ruby
 Все команды выполнялись с помощью консоли occ NextCloud
 
 1. Подробная информация о пользователе
