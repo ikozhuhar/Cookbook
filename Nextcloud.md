@@ -221,6 +221,12 @@ pm.start_servers = 6
 pm.min_spare_servers = 4
 pm.max_spare_servers = 12
 pm.max_requests = 5000           # Предотвращает утечки памяти
+
+pm.max_children = 120        # ← МАКСИМАЛЬНЫЙ ЛИМИТ ВСЕХ ПРОЦЕССОВ
+pm.start_servers = 20        # количество при запуске
+pm.min_spare_servers = 10    # минимальное idle процессов
+pm.max_spare_servers = 30    # максимальное idle процессов
+pm.max_requests = 500        # перезапуск после N запросов
 ```
 
 _Конфигурационные файлы_
