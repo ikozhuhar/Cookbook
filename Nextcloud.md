@@ -216,11 +216,11 @@ _3. PHP-FPM пул процессов_
 # /etc/php/8.2/fpm/pool.d/www.conf
 
 pm = dynamic
-pm.max_children = 25             # Минимум 20-25 для средней нагрузки
-pm.start_servers = 6
-pm.min_spare_servers = 4
-pm.max_spare_servers = 12
-pm.max_requests = 5000           # Предотвращает утечки памяти
+pm.max_children = 50             # Минимум 20-25 для средней нагрузки
+pm.start_servers = 5
+pm.min_spare_servers = 5
+pm.max_spare_servers = 35
+pm.max_requests = 500            # Предотвращает утечки памяти
 
 pm.max_children = 120        # ← МАКСИМАЛЬНЫЙ ЛИМИТ ВСЕХ ПРОЦЕССОВ
 pm.start_servers = 20        # количество при запуске
