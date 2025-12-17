@@ -33,4 +33,19 @@ sudo apt-get autoclean
 
 # 4. Только после этого удалить оставшиеся файлы
 sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql
+
+# Удалить ВСЕ каталоги MySQL
+sudo rm -rf /etc/mysql
+sudo rm -rf /var/lib/mysql
+sudo rm -rf /var/lib/mysql-files
+sudo rm -rf /var/lib/mysql-keyring
+sudo rm -rf /var/log/mysql
+sudo rm -rf /run/mysqld
+sudo rm -f /etc/apparmor.d/abstractions/mysql /etc/apparmor.d/cache/usr.sbin.mysqld
+```
+
+### Полный бэкап БД
+
+```ruby
+mysqldump -u root -p --all-databases > full_backup.sql
 ```
