@@ -7,7 +7,15 @@ CREATE USER IF NOT EXISTS 'ikozhuhar'@'%' IDENTIFIED BY 'ZEwht62M5j';
 GRANT ALL PRIVILEGES ON *.* TO `ikozhuhar`@`%`;
 FLUSH PRIVILEGES;
 
+# Проверка созданного пользователя
+-- Просмотр всех пользователей
 SELECT User, Host FROM mysql.user;
+
+-- Просмотр привилегий пользователя
+SHOW GRANTS FOR 'ikozhuhar'@'%';
+SHOW GRANTS FOR ikozhuhar@localhost;
+SHOW GRANTS FOR 'mip_db_user'@'localhost';
+SHOW TABLES;
 ```
 
 ### Правильный способ полного удаления MySQL:
