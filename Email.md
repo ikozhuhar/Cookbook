@@ -25,5 +25,9 @@ echo "Test body" | mail -s "Test Subject" Kozhukhar.I@mosinzhproekt.ru
 ```
 
 ```ruby
-openssl s_client -connect smtp.mosinzhproekt.ru:25 -starttls smtp -crlf
+openssl s_client -connect smtp.mosinzhproekt.ru:587 -starttls smtp -crlf
+EHLO localhost
+AUTH LOGIN
+c2MtZGV2 # echo -n "sc-dev" | base64
+OHhVY2pYUlFTem45N1Z2 # echo -n "8xUcjXRQSzn97Vv" | base64
 ```
