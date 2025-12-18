@@ -1,6 +1,6 @@
 ### ✅ Автоматическая аутентификация через .pgpass
 
-Если в команде _sudo -i -u postgres /opt/pgpro/ent-14/bin/pg_dump --data-only --table="$DB_NAME" MIP_UPSD > "$BACKUP_FILE"_ не указан пароль, то он ищется в `.pgpass`
+Если в команде `_sudo -i -u postgres /opt/pgpro/ent-14/bin/pg_dump --data-only --table="$DB_NAME" MIP_UPSD > "$BACKUP_FILE"_` не указан пароль, то он ищется в `.pgpass`
 
 Когда в команде `sudo -i -u postgres /opt/pgpro/ent-14/bin/pg_dump --data-only --table="$DB_NAME" MIP_UPSD > "$BACKUP_FILE"` не указаны явные параметры аутентификации (`--username`, `--password` или `-W`), PostgreSQL клиентские утилиты используют цепочку автоматической аутентификации:
 
