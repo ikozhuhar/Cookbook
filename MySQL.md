@@ -38,8 +38,11 @@ sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql /var/lib/mysql-files /var/l
 sudo rm -f /etc/apparmor.d/abstractions/mysql /etc/apparmor.d/cache/usr.sbin.mysqld
 ```
 
-### Полный бэкап БД
+### Бэкап БД
 
 ```ruby
+# Полный бэкап БД
 mysqldump -u root -p --all-databases > full_backup.sql
+
+mysqldump -v -h 127.0.0.1 -u mip_db_user -p mip > 08.08.2025.dump.sql
 ```
