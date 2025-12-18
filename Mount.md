@@ -98,8 +98,9 @@ password=ваш_пароль
 1. Проверьте содержимое файла credentials. Убедитесь, что `/root/.smbclient` содержит:
 
 ```ruby
-username=your_windows_username
-password=your_windows_password
+username=portal-app
+password=3$G&R!~Jr6a#
+domain=mip
 ```
 
 2. Права на файл с паролями:
