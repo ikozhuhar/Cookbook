@@ -4,7 +4,7 @@
 sudo apt install mailutils
 ```
 
-### Настройте /etc/mail.rc
+_Настройте /etc/mail.rc_
 
 ```ruby
 sudo nano /etc/mail.rc
@@ -18,7 +18,7 @@ set smtp-auth-password="8#xUcjX~RQSz&?Vv"
 ```
 
 
-### Отправьте тестовое письмо
+_Отправьте тестовое письмо_
 
 ```ruby
 echo "Test body" | mail -s "Test Subject" Kozhukhar.I@mosinzhproekt.ru
