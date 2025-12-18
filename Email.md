@@ -45,9 +45,14 @@ OHhVY2pYUlFTem45N1Z2
 MAIL FROM: sc-dev@mosinzhproekt.ru
 RCPT TO: Kozhukhar.I@mosinzhproekt.ru
 DATA
-Subject: Test Test
+From: sc-dev@mosinzhproekt.ru
+To: Kozhukhar.I@mosinzhproekt.ru
+Subject: Test with Telnet
+Content-Type: text/plain; charset=utf-8
 
-Test message
+This is the body of the email.
+HELLO message here.
+
 .
 QUIT
 ```
