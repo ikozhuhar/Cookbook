@@ -18,7 +18,7 @@ set smtp-auth-password="8#xUcjX~RQSz&?Vv"
 ```
 
 
-### # Отправьте тестовое письмо
+### Отправьте тестовое письмо
 
 ```ruby
 echo "Test body" | mail -s "Test Subject" Kozhukhar.I@mosinzhproekt.ru
