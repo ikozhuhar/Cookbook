@@ -45,4 +45,5 @@ sudo rm -f /etc/apparmor.d/abstractions/mysql /etc/apparmor.d/cache/usr.sbin.mys
 mysqldump -u root -p --all-databases > full_backup.sql
 
 mysqldump -v -h 127.0.0.1 -u mip_db_user -p mip > 08.08.2025.dump.sql
+mysqldump -v -h 127.0.0.1 -u ikozhuhar -p otus > 18.12.2025.otus.sql
 ```
