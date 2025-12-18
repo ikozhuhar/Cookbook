@@ -8,7 +8,7 @@
 
 ### ✅ Детальный разбор по частям:
 
-_Синтаксис строки в /etc/fstab следующий:_
+_Синтаксис строки в `/etc/fstab` следующий:_
 
 ```ruby
 <источник> <точка_монтирования> <тип_файловой_системы> <опции> <дампирование> <проверка_при_загрузке>
@@ -31,14 +31,14 @@ _Разберем каждую часть вашей строки:_
 
 `/DWH_Portal_Statistic` 
 - Это путь в вашей локальной Linux-системе, куда будет "подключено" содержимое удаленной папки. 
-- После успешного монтирования, зайдя в локальную папку `/DWH_Portal_Statistic`, вы будете видеть файлы и папки, которые физически находятся на сервере khd-fs01.mip.ru.
+- После успешного монтирования, зайдя в локальную папку `/DWH_Portal_Statistic`, вы будете видеть файлы и папки, которые физически находятся на сервере `192.168.2.32`.
 
 
 
 #### ✅ _3. Тип файловой системы_
 
 `cifs`
-- Указывает ядру Linux, что для работы с этим сетевым ресурсом нужно использовать драйвер **CIFS** (Common Internet File System). 
+- Указывает ядру Linux, что для работы с этим сетевым ресурсом нужно использовать драйвер **CIFS** (`Common Internet File System`). 
 - CIFS — это более современная версия протокола SMB (Server Message Block), используемого для общего доступа к файлам в сетях Windows. В современных системах эти термины часто взаимозаменяемы.
 
 
@@ -108,7 +108,7 @@ password=your_windows_password
 chmod 600 /root/.smbclient
 ```
 
-3. Перед добавлением в fstab:
+3. Перед добавлением в `fstab`:
 
 Протестируйте монтирование вручную:
 
@@ -117,7 +117,7 @@ mkdir -p /mnt/DWH_Portal_Statistic
 mount -t cifs //192.168.2.32/DWH_Portal_Statistic /mnt/DWH_Portal_Statistic -o credentials=/root/.smbclient,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm,rw,vers=3.0
 ```
 
-4. Итоговый fstab:
+4. Итоговый `fstab`:
 
 ```ruby
 //192.168.2.32/DWH_Portal_Statistic /mnt/DWH_Portal_Statistic cifs credentials=/root/.smbclient,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm,rw,vers=3.0 0 0
@@ -139,12 +139,12 @@ df -h | grep DWH_Portal_Statistic
 mount | grep DWH_Portal_Statistic
 ```
 
-7. Проверим список доступных шаров
+7. Проверим список доступных шар
 ```ruby
 smbclient -L 192.168.2.32 -A /root/.smbclient
 ```
 
-8. Попробуем подключиться через smbclient
+8. Попробуем подключиться через `smbclient`
 ```ruby
 # Подключимся напрямую к шаре
 smbclient //192.168.2.32/DWH_Portal_Statistic -A /root/.smbclient
