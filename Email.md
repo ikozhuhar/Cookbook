@@ -56,3 +56,6 @@ HELLO message here.
 .
 QUIT
 ```
+
+<img width="1301" height="821" alt="image" src="https://github.com/user-attachments/assets/a93fcc53-0ebb-4cab-8dcc-5bb1a2ab2127" />
+
