@@ -51,8 +51,9 @@ _Разберем каждую часть вашей строки:_
 - Внутри файла `credentials=/root/.smbclient` должны быть строки:
 
 ```ruby
-username=ваш_логин
-password=ваш_пароль
+username=portal-app
+password=3$G&R!~Jr6a#
+domain=mip
 ```
 
 - Это более безопасный способ, чем указывать пароль прямо в командной строке или в `fstab`.
