@@ -1,5 +1,7 @@
 ### ✅ Монтирование удаленной папки на CP-APP-1 (192.168.2.62)
 
+<hr>
+
 `//192.168.2.32/DWH_Portal_Statistic /mnt/DWH_Portal_Statistic cifs credentials=/root/.smbclient,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm,rw,vers=3.0 0 0`
 
 **Краткий ответ**: Строка из файла `/etc/fstab` для автоматического подключения (монтирования) удаленной сетевой папки `//192.168.2.32/DWH_Portal_Statistic` к локальной файловой системе при загрузке компьютера. Папка будет доступна в директории `/mnt/DWH_Portal_Statistic`.
