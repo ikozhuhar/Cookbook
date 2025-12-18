@@ -23,3 +23,7 @@ set smtp-auth-password="8#xUcjX~RQSz&?Vv"
 ```ruby
 echo "Test body" | mail -s "Test Subject" Kozhukhar.I@mosinzhproekt.ru
 ```
+
+```ruby
+openssl s_client -connect smtp.mosinzhproekt.ru:25 -starttls smtp -crlf
+```
