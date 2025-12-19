@@ -1,4 +1,4 @@
-### MySQL
+### &nbsp; MySQL
 
 ```ruby
 mysql -v -h 127.0.0.1 -u ikozhuhar -pZEwht62M5j otus < /home/ansible/otus_05-12-2025.sql
