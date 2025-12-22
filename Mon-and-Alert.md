@@ -83,7 +83,7 @@ _Теперь можно сходить на `http://localhost:9090`_
 
 <br>
 
-### Установка node exporter
+### Установка Node Exporter
 
 ```ruby
 sudo wget https://github.com/.../node_exporter-0.18.1.linux-amd64.tar.gz
@@ -137,7 +137,7 @@ _Теперь можно сходить на `http://localhost:9100/metrics`_
 
 <br>
 
-### Установка alertmanager
+### Установка Alertmanager
 
 ```ruby
 sudo wget https://github.com/.../alertmanager-0.18.0.linux-amd64.tar.gz
