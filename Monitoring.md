@@ -121,7 +121,7 @@ _Теперь можно сходить на `http://localhost:9090`_
 
 ### ✅ <a name='node_exporter'>Установка Node Exporter</a>
 
-`Node Exporter` устанавливаем на сервер, который будем мониторить. Например, на сервер 192.168.11.155 указанный в файле `/etc/prometheus/prometheus.yml`.
+**Node Exporter** устанавливаем на сервер, который будем мониторить. Например, на сервер 192.168.11.155 указанный в файле `/etc/prometheus/prometheus.yml`.
 
 ```ruby
 sudo wget https://github.com/.../node_exporter-0.18.1.linux-amd64.tar.gz
