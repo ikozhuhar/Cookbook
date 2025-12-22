@@ -115,7 +115,7 @@ _Теперь можно сходить на `http://localhost:9090`_
 
 ### ✅ <a name='node_exporter'>Установка Node Exporter</a>
 
-`Node Exporter` устанавливаем на сервер, который будет мониторить.
+`Node Exporter` устанавливаем на сервер, который будем мониторить.
 
 ```ruby
 sudo wget https://github.com/.../node_exporter-0.18.1.linux-amd64.tar.gz
