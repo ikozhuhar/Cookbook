@@ -191,8 +191,8 @@ receivers:
 - name: telegram
   telegram_configs:
     - api_url: 'https://api.telegram.org'
-      bot_token: 8540102029:AAEkxseb9oIVhZsrw0gTz82LD4qLtCDiuw4
-      chat_id: -1003385009760
+      bot_token: 9840143014:BEEkxseb78IYeZsow0GTz82LD4qLtcdxiw4
+      chat_id: -1764485087758
       send_resolved: true
       parse_mode: HTML
       message: '{{ template "telegram.message" . }}'
