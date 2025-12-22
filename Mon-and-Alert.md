@@ -3,8 +3,8 @@
 #### <a name='toc'>Содержание</a>
 
 1. [Установка Prometheus](#prometheus)
-2. [Установка Node Exporter](#entrymenugrub)
-3. [Установка Alertmanager](#&&&&&&&&&&&&&)
+2. [Установка Node Exporter](#node_exporter)
+3. [Установка Alertmanager](#alertmanager)
 
 
 
@@ -91,7 +91,7 @@ _Теперь можно сходить на `http://localhost:9090`_
 
 <br>
 
-### Установка Node Exporter
+### <a name='node_exporter'Установка Node Exporter</a>
 
 ```ruby
 sudo wget https://github.com/.../node_exporter-0.18.1.linux-amd64.tar.gz
@@ -145,7 +145,7 @@ _Теперь можно сходить на `http://localhost:9100/metrics`_
 
 <br>
 
-### Установка Alertmanager
+### <a name='alertmanager'Установка Alertmanager</a>
 
 ```ruby
 sudo wget https://github.com/.../alertmanager-0.18.0.linux-amd64.tar.gz
