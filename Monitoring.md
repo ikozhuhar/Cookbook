@@ -71,6 +71,7 @@ rule_files:
   - "second_rules.yml"
 
 scrape_configs:
+
   - job_name: 'node'
     static_configs:
     - targets:
