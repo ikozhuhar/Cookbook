@@ -40,3 +40,13 @@ ProtectSystem=full
 [Install]
 WantedBy=default.target
 ```
+
+_Запускаем Prometheus server:_
+
+```ruby
+sudo systemctl daemon-reload
+sudo systemctl start prometheus
+sudo systemctl status prometheus
+```
+
+_Теперь можно сходить на `http://localhost:9090`_
