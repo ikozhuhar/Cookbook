@@ -41,14 +41,6 @@ ProtectSystem=full
 WantedBy=default.target
 ```
 
-_Запускаем Prometheus server:_
-
-```ruby
-sudo systemctl daemon-reload
-sudo systemctl start prometheus
-sudo systemctl status prometheus
-```
-
 
 _Файл `/etc/prometheus/prometheus.yml`_
 
@@ -76,7 +68,16 @@ scrape_configs:
        - anotherhost:9100
 ```
 
+_Запускаем Prometheus server:_
+
+```ruby
+sudo systemctl daemon-reload
+sudo systemctl start prometheus
+sudo systemctl status prometheus
+```
+
 _Теперь можно сходить на `http://localhost:9090`_
+
 
 
 
