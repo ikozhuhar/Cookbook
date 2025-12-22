@@ -67,7 +67,7 @@ alerting:
        - localhost:9093
 
 rule_files:
-  - "first_rules.yml"
+  - "rules_alerts.yml"
   - "second_rules.yml"
 
 scrape_configs:
@@ -77,6 +77,26 @@ scrape_configs:
        - localhost:9100
        - anotherhost:9100
 ```
+
+
+_Файл `rules_alerts.yml`_
+
+```ruby
+groups:
+- name: vm-availability
+  rules:
+    - alert: VMDown
+      expr: up == 0
+      for: 0s
+      labels:
+        severity: 'critical'
+      annotations:
+        summary: "Виртуальная машина {{ $labels.hostname }} ({{ $labels.instаncе }}) недоступна!"
+        description: "Виртуальная машина {{ $labels.instance }} недоступна!"
+        value: "{{ $value }}"
+```
+
+
 
 _Запускаем Prometheus server:_
 
@@ -207,6 +227,24 @@ receivers:
       parse_mode: HTML
       message: '{{ template "telegram.message" . }}'
 ```
+
+
+_Файл `telegram.tmpl`_
+
+```ruby
+{{ define "telegram.message" }}
+<b>{{ if eq .Status "firing" }}⚠️ Возникла проблема⚠️{{ else }}✅ Проблема решена ✅{{ end }}</b>
+
+<b>Событие:</b> {{ .CommonLabels.alertname }}
+<b>Описание:</b> {{ (index .Alerts 0).Annotations.description }}
+<b>Статус:</b> {{ .Status }}
+<b>Критичность:</b> {{ .CommonLabels.severity }}
+<b>Виртуальная машина:</b> {{ .CommonLabels.instance }}
+
+<b>Время начала:</b> {{ (index .Alerts 0).StartsAt.Local.Format "02-01-2006 15:04:05 MST" }}
+{{ end }}
+```
+
 
 _Запускаем alertmanager:_
 
