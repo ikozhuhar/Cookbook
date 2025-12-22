@@ -133,3 +133,85 @@ sudo systemctl status node_exporter
 
 _Теперь можно сходить на `http://localhost:9100/metrics`_
 
+
+
+<br>
+
+### Установка alertmanager
+
+```ruby
+sudo wget https://github.com/.../alertmanager-0.18.0.linux-amd64.tar.gz
+sudo tar xf alertmanager-*.tar.gz
+sudo cd alertmanager-*
+sudo cp alertmanager /usr/local/bin
+sudo mkdir /etc/alertmanager /var/lib/alertmanager
+sudo cp alertmanager.yml /etc/alertmanager
+sudo useradd --no-create-home --home-dir / --shell /bin/false alertmanager
+sudo chown -R alertmanager:alertmanager /var/lib/alertmanager
+```
+
+_Создаём systemd-юнит: `/etc/systemd/system/alertmanager.service`_
+
+```ruby
+[Unit]
+Description=Alertmanager for prometheus
+After=network.target
+
+[Service]
+User=alertmanager
+ExecStart=/usr/local/bin/alertmanager \
+  --config.file=/etc/alertmanager/alertmanager.yml \
+  --storage.path=/var/lib/alertmanager/
+ExecReload=/bin/kill -HUP $MAINPID
+
+NoNewPrivileges=true
+ProtectHome=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```ruby
+global:
+  resolve_timeout: 1s
+  telegram_api_url: "https://api.telegram.org"
+
+templates:
+- '/etc/alertmanager/templates/*.tmpl'
+
+route:
+  receiver: telegram
+  group_by: ['alertname']
+  group_wait: 0s
+  group_interval: 5s
+  #repeat_interval: 1h
+
+receivers:
+- name: telegram
+  telegram_configs:
+    - api_url: 'https://api.telegram.org'
+      bot_token: 8540102029:AAEkxseb9oIVhZsrw0gTz82LD4qLtCDiuw4
+      chat_id: -1003385009760
+      send_resolved: true
+      parse_mode: HTML
+      message: '{{ template "telegram.message" . }}'
+```
+
+_Запускаем alertmanager:_
+
+```ruby
+sudo systemctl daemon-reload
+sudo systemctl start alertmanager
+sudo systemctl status alertmanager
+```
+
+_Теперь можно сходить на http://localhost:9093/metrics_
+
+
+
+
+
+
+
+
