@@ -4,7 +4,7 @@
 
 ### Установка Prometheus
 
-```bash
+```ruby
 $ wget https://github.com/.../prometheus-2.45.3.linux-amd64.tar.gz
 $ tar xf prometheus-*.tar.gz
 
@@ -20,7 +20,7 @@ $ chown -R prometheus:prometheus /var/lib/prometheus
 
 _Создаём systemd-юнит: `/etc/systemd/system/prometheus.service`_
 
-```bash
+```ruby
 [Unit]
 Description=Prometheus
 Wants=network-online.target
