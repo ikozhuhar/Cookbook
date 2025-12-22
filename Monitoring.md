@@ -76,6 +76,11 @@ scrape_configs:
     - targets:
        - localhost:9100
        - anotherhost:9100
+
+  - job_name: "web01"
+    static_configs:
+    - targets:
+      - 192.168.11.155:9100
 ```
 
 
