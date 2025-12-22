@@ -246,7 +246,7 @@ _Файл `telegram.tmpl`_
 ```
 
 
-_Запускаем alertmanager:_
+_Запускаем `Alertmanager`:_
 
 ```ruby
 sudo systemctl daemon-reload
@@ -255,6 +255,8 @@ sudo systemctl status alertmanager
 ```
 
 _Теперь можно сходить на http://localhost:9093/metrics_
+
+На этом установка и настройка завершина. Для теста, можно "погасить" VM указанную в файле `/etc/prometheus/prometheus.yml`, после чего алерт должен прилететь в телеграмм.
 
 
 
