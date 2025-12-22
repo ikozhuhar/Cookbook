@@ -121,6 +121,7 @@ sudo tar xf node_exporter-*.tar.gz
 sudo cd node_exporter-*
 sudo cp node_exporter /usr/local/bin
 sudo useradd --no-create-home --home-dir / --shell /bin/false node_exporter
+```
 
 _Создаём systemd-юнит: `/etc/systemd/system/node_exporter.service`_
 
