@@ -1,8 +1,16 @@
 ## Мониторинг
 
+#### <a name='toc'>Содержание</a>
+
+1. [Установка Prometheus](#prometheus)
+2. [Установка Node Exporter](#entrymenugrub)
+3. [Установка Alertmanager](#&&&&&&&&&&&&&)
+
+
+
 <img width="878" height="510" alt="image" src="https://github.com/user-attachments/assets/52c3175f-dce5-405c-8c09-fe35c35cb892" />
 
-### Установка Prometheus
+### <a name='prometheus'>Установка Prometheus</a>
 
 ```ruby
 $ wget https://github.com/.../prometheus-2.45.3.linux-amd64.tar.gz
