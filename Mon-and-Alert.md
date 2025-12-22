@@ -145,7 +145,7 @@ _Теперь можно сходить на `http://localhost:9100/metrics`_
 
 <br>
 
-### 3. (#toc) <a name='alertmanager'>Установка Alertmanager</a>
+### 3. <a name='alertmanager'>Установка Alertmanager</a>
 
 ```ruby
 sudo wget https://github.com/.../alertmanager-0.18.0.linux-amd64.tar.gz
