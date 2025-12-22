@@ -58,7 +58,6 @@ global:
   evaluation_interval: 15s
   scrape_timeout: 8s
 
-# Alertmanager configuration
 alerting:
   alertmanagers:
   - static_configs:
@@ -74,7 +73,7 @@ scrape_configs:
     static_configs:
     - targets:
        - localhost:9100
-     # - anotherhost:9100
+       - anotherhost:9100
 ```
 
 _Теперь можно сходить на `http://localhost:9090`_
