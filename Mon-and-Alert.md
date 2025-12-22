@@ -50,3 +50,58 @@ sudo systemctl status prometheus
 ```
 
 _Теперь можно сходить на `http://localhost:9090`_
+
+
+
+<br>
+
+### Установка node exporter
+
+```ruby
+sudo wget https://github.com/.../node_exporter-0.18.1.linux-amd64.tar.gz
+sudo tar xf node_exporter-*.tar.gz
+sudo cd node_exporter-*
+sudo cp node_exporter /usr/local/bin
+sudo useradd --no-create-home --home-dir / --shell /bin/false node_exporter
+
+_Создаём systemd-юнит: `/etc/systemd/system/node_exporter.service`_
+
+```ruby
+[Unit]
+Description=Prometheus Node Exporter
+After=network.target
+
+[Service]
+Type=simple
+User=node_exporter
+Group=node_exporter
+ExecStart=/usr/local/bin/node_exporter
+
+SyslogIdentifier=node_exporter
+Restart=always
+
+PrivateTmp=yes
+ProtectHome=yes
+NoNewPrivileges=yes
+
+ProtectSystem=strict
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=yes
+
+[Install]
+WantedBy=multi-user.target
+```
+
+**Важно!** Если у вас `/home` вынесен на отдельный раздел, директиву `ProtectHome=yes` надо убрать, иначе `node exporter` будет неправильно показывать оставшееся место на разделе `/home`.
+
+_Запускаем node exporter:_
+
+```ruby
+sudo systemctl daemon-reload
+sudo systemctl start node_exporter
+sudo systemctl status node_exporter
+```
+
+_Теперь можно сходить на `http://localhost:9100/metrics`_
+
