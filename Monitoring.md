@@ -12,7 +12,7 @@
 
 <img width="878" height="510" alt="image" src="https://github.com/user-attachments/assets/52c3175f-dce5-405c-8c09-fe35c35cb892" />
 
-✅ ### <a name='prometheus'>Установка Prometheus</a>
+### ✅ <a name='prometheus'>Установка Prometheus</a>
 
 ```ruby
 $ wget https://github.com/.../prometheus-2.45.3.linux-amd64.tar.gz
@@ -113,7 +113,7 @@ _Теперь можно сходить на `http://localhost:9090`_
 
 <br>
 
-### <a name='node_exporter'>Установка Node Exporter</a>
+### ✅ <a name='node_exporter'>Установка Node Exporter</a>
 
 ```ruby
 sudo wget https://github.com/.../node_exporter-0.18.1.linux-amd64.tar.gz
@@ -167,7 +167,7 @@ _Теперь можно сходить на `http://localhost:9100/metrics`_
 
 <br>
 
-### <a name='alertmanager'>Установка Alertmanager</a>
+### ✅ <a name='alertmanager'>Установка Alertmanager</a>
 
 ```ruby
 sudo wget https://github.com/.../alertmanager-0.18.0.linux-amd64.tar.gz
