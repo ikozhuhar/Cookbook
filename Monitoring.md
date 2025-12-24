@@ -125,7 +125,7 @@ _Теперь можно сходить на `http://localhost:9090`_
 
 ```ruby
 sudo wget https://github.com/.../node_exporter-0.18.1.linux-amd64.tar.gz
-sudo tar xf node_exporter-*.tar.gz
+sudo tar -xf node_exporter-*.tar.gz
 sudo cd node_exporter-*
 sudo cp node_exporter /usr/local/bin
 sudo useradd --no-create-home --home-dir / --shell /bin/false node_exporter
