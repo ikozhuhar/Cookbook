@@ -29,18 +29,9 @@ PGPORT - порт
 # Остановить службу
 sudo systemctl stop tantor-be-server-17.service
 
-# Удалить данные
-sudo rm -rf /var/lib/postgresql/tantor-be-17/data/*
-
-# Или удалить всю директорию
-sudo rm -rf /var/lib/postgresql/tantor-be-17/data
-
-# Создать заново
 # Создать директорию в домашней папке
-mkdir -p /var/lib/postgresql/tantor-be-17/data
-chmod 700 ~/tantor-data/data
+sudo mkdir -p /var/lib/postgresql/tantor-be-17/data
 sudo chown postgres:postgres /var/lib/postgresql/tantor-be-17/data
-sudo chown postgres:postgres ~/tantor-data/data
 
 # Инициализировать БД
 sudo -u postgres /opt/tantor/db/17/bin/initdb -D /var/lib/postgresql/tantor-be-17/data
