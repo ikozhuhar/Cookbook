@@ -24,7 +24,7 @@ PGPORT - порт
 ### ✅ Tantor
 
 ```ruby
-Как принудительно переинициализировать:
+Как инициализировать базу:
 
 # Остановить службу
 sudo systemctl stop tantor-be-server-17.service
