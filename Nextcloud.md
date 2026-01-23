@@ -270,6 +270,36 @@ request_terminate_timeout = 300s
 request_slowlog_timeout = 30s
 ```
 
+```ruby
+/etc/systemd/system/php82-fpm-restart.service
+[Unit]
+Description=Restart PHP82-FPM to prevent memory leaks
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl restart php8.2-fpm
+
+
+
+/etc/systemd/system/php82-fpm-restart.timer
+[Unit]
+Description=Restart PHP-FPM every 30 minutes
+
+[Timer]
+OnBootSec=30min
+OnUnitActiveSec=30min
+Persistent=true
+
+# OnCalendar=*-*-* 02:00:00
+# Persistent=true
+# *-*-* означает: любой год-месяц-день
+
+[Install]
+WantedBy=timers.target
+```
+
+
 _Конфигурационные файлы_
 
 ```ruby
