@@ -248,6 +248,11 @@ sudo ps aux | grep 'php-fpm: pool www' | grep -v grep | awk '{print $8}' | sort 
 # R - выполняющие запрос
 # D - в uninterruptible sleep (обычно I/O)
 
+# ЛОГИ
+sudo grep -i "max_requests\|exiting\|reached" /var/log/php8.2-fpm.log | tail -20
+sudo journalctl -u php8.2-fpm
+sudo tail -n 20 /var/log/php8.2-fpm.log
+
 # PHP настройки для NextCloud:
 
 /etc/php/8.2/fpm/pool.d/www.conf
