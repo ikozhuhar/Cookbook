@@ -245,20 +245,19 @@ sudo ps aux | grep 'php-fpm: pool www' | grep -v grep | awk '{print $8}' | sort 
 # R - выполняющие запрос
 # D - в uninterruptible sleep (обычно I/O)
 
-# Рекомендуемые настройки для NextCloud:
+# PHP настройки для NextCloud:
 
-; /etc/php/8.2/fpm/pool.d/www.conf
+/etc/php/8.2/fpm/pool.d/www.conf
 pm = dynamic
 pm.max_children = 30
 pm.start_servers = 5
 pm.min_spare_servers = 5
 pm.max_spare_servers = 10
 
-; Комбинируем оба подхода:
-pm.max_requests = 200       ; перезапуск после 200 запросов
-pm.process_idle_timeout = 60s  ; + очистка после 60 секунд простоя
+pm.max_requests = 200          # перезапуск после 200 запросов
+pm.process_idle_timeout = 60s  # очистка после 60 секунд простоя
 
-; Для тяжелых операций NextCloud
+# Для тяжелых операций NextCloud
 request_terminate_timeout = 300s
 request_slowlog_timeout = 30s
 ```
