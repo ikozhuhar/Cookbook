@@ -215,18 +215,14 @@ _3. PHP-FPM пул процессов_
 ```ruby
 # /etc/php/8.2/fpm/pool.d/www.conf
 
-pm = dynamic
-pm.max_children = 50             # Минимум 20-25 для средней нагрузки
-pm.start_servers = 5
-pm.min_spare_servers = 5
-pm.max_spare_servers = 35
-pm.max_requests = 500            # Предотвращает утечки памяти
+pm = dynamic                     # Процессы создаются по требованию
+pm.max_children = 50             # Максимальное количество процессов (воркеров), которые могут работать одновременно
+pm.start_servers = 5             # Сколько процессов запускается при старте
+pm.min_spare_servers = 5         # Минимальное количество свободных процессов в резерве
+pm.max_spare_servers = 35        # Максимальное количество свободных процессов в резерве
+pm.max_requests = 500            # Перезапуск после N запросов. Предотвращает утечки памяти
 
-pm.max_children = 120        # ← МАКСИМАЛЬНЫЙ ЛИМИТ ВСЕХ ПРОЦЕССОВ
-pm.start_servers = 20        # количество при запуске
-pm.min_spare_servers = 10    # минимальное idle процессов
-pm.max_spare_servers = 30    # максимальное idle процессов
-pm.max_requests = 500        # перезапуск после N запросов
+sudo grep -E "pm.max_children|pm.start_servers|pm.min_spare_servers|pm.max_spare_servers|pm.max_requests" /etc/php/8.2/fpm/pool.d/www.conf
 
 Что происходит при достижении лимита:
 Достигнут pm.max_children → новые процессы не создаются
