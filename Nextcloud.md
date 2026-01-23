@@ -238,6 +238,9 @@ TROUBLESHOOTING
 sudo grep -E "pm.max_children|pm.start_servers|pm.min_spare_servers|pm.max_spare_servers|pm.max_requests" /etc/php/8.2/fpm/pool.d/www.conf
 sudo grep -E "upload_max_filesize|post_max_size|max_execution_time|max_input_time|upload_tmp_dir" /etc/php/8.2/fpm/php.ini
 
+grep -v -E '^\s*#|^\s*;|^\s*$' /etc/php/8.2/fpm/php.ini | sed 's/;.*$//'
+grep -v -E '^\s*#|^\s*;|^\s*$' /etc/php/8.2/fpm/pool.d/www.conf | sed 's/;.*$//'
+
 # Сколько процессов простаивают
 sudo ps aux | grep 'php-fpm: pool www' | grep -v grep | awk '{print $8}' | sort | uniq -c
 
