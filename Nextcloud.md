@@ -220,14 +220,30 @@ pm.max_children = 50             # Максимальное количество
 pm.start_servers = 5             # Сколько процессов запускается при старте
 pm.min_spare_servers = 5         # Минимальное количество свободных процессов в резерве
 pm.max_spare_servers = 35        # Максимальное количество свободных процессов в резерве
-pm.max_requests = 500            # Перезапуск после N запросов. Предотвращает утечки памяти
+pm.max_requests = 100            # Перезапуск после N запросов. Предотвращает утечки памяти
+pm.process_idle_timeout = 30s    # Регулярная очистка по времени автоматически завершает дочерние процессы PHP-FPM после определенного времени бездействия
 
+
+pm.status_path = /status         # curl http://localhost/status
 sudo grep -E "pm.max_children|pm.start_servers|pm.min_spare_servers|pm.max_spare_servers|pm.max_requests" /etc/php/8.2/fpm/pool.d/www.conf
 
 Что происходит при достижении лимита:
 Достигнут pm.max_children → новые процессы не создаются
 Новые запросы ставятся в очередь
 Если очередь переполнена → ошибка 502 Bad Gateway
+
+
+TROUBLESHOOTING
+
+sudo grep -E "pm.max_children|pm.start_servers|pm.min_spare_servers|pm.max_spare_servers|pm.max_requests" /etc/php/8.2/fpm/pool.d/www.conf
+sudo grep -E "upload_max_filesize|post_max_size|max_execution_time|max_input_time|upload_tmp_dir" /etc/php/8.2/fpm/php.ini
+
+# Сколько процессов простаивают
+sudo ps aux | grep 'php-fpm: pool www' | grep -v grep | awk '{print $8}' | sort | uniq -c
+
+# S - спящие (ожидающие запрос)
+# R - выполняющие запрос
+# D - в uninterruptible sleep (обычно I/O)
 ```
 
 _Конфигурационные файлы_
