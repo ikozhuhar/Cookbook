@@ -270,6 +270,10 @@ request_terminate_timeout = 300s
 request_slowlog_timeout = 30s
 ```
 
+<br>
+
+_Timer_
+
 ```ruby
 /etc/systemd/system/php82-fpm-restart.service
 [Unit]
