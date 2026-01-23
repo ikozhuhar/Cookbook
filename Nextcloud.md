@@ -280,7 +280,7 @@ After=network.target
 Type=oneshot
 ExecStart=/bin/systemctl restart php8.2-fpm
 
-**/etc/systemd/system/php82-fpm-restart.timer**
+** /etc/systemd/system/php82-fpm-restart.timer
 [Unit]
 Description=Restart PHP-FPM every 30 minutes
 
