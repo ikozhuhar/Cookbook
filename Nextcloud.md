@@ -299,6 +299,13 @@ Persistent=true
 
 [Install]
 WantedBy=timers.target
+
+# Включить
+sudo systemctl daemon-reload
+sudo systemctl enable --now php82-fpm-restart.timer
+
+# Проверить
+sudo systemctl list-timers | grep php-fpm
 ```
 
 
