@@ -2,6 +2,9 @@
 <hr>
 
 `//192.168.2.32/DWH_Portal_Statistic /mnt/DWH_Portal_Statistic cifs credentials=/root/.smbclient,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm,rw,vers=3.0 0 0`
+**Краткий ответ**: Строка из файла `/etc/fstab` для автоматического подключения (монтирования) удаленной сетевой папки `//192.168.2.32/DWH_Portal_Statistic` к локальной файловой системе при загрузке компьютера. Папка будет доступна в директории `/mnt/DWH_Portal_Statistic`.
+
+
 
 ```ruby
 # Пример созданный на TEST-SAS-010 (192.168.9.196)
@@ -14,8 +17,6 @@ sudo echo "//192.168.2.32/DWH_Portal_Statistic /mnt/statistic_export cifs creden
 sudo mount -a
 sudo echo "0 3 * * * root /usr/bin/rsync -avz /home/bitrix/www/upload/period_statistic_export/ /mnt/statistic_export/" >> /etc/crontab
 ```
-
-**Краткий ответ**: Строка из файла `/etc/fstab` для автоматического подключения (монтирования) удаленной сетевой папки `//192.168.2.32/DWH_Portal_Statistic` к локальной файловой системе при загрузке компьютера. Папка будет доступна в директории `/mnt/DWH_Portal_Statistic`.
 
 
 
