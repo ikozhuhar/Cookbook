@@ -7,9 +7,9 @@
 # Пример созданный на TEST-SAS-010 (192.168.9.196)
 sudo yum install -y cifs-utils samba-client
 sudo nano /root/.smbclient
-mkdir -p /mnt/statistic_export
-mount -t cifs //192.168.2.32/DWH_Portal_Statistic /mnt/statistic_export -o credentials=/root/.smbclient,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm,ro,vers=3.0
-rsync -avz /home/bitrix/www/upload/period_statistic_export/ /mnt/statistic_export/
+sudo mkdir -p /mnt/statistic_export
+sudo mount -t cifs //192.168.2.32/DWH_Portal_Statistic /mnt/statistic_export -o credentials=/root/.smbclient,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm,ro,vers=3.0
+sudo rsync -avz /home/bitrix/www/upload/period_statistic_export/ /mnt/statistic_export/
 sudo echo "//192.168.2.32/DWH_Portal_Statistic /mnt/statistic_export cifs credentials=/root/.smbclient,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm,ro,vers=3.0 0 0" >> /etc/fstab
 sudo mount -a
 sudo echo "0 3 * * * root /usr/bin/rsync -avz /home/bitrix/www/upload/period_statistic_export/ /mnt/statistic_export/" >> /etc/crontab
