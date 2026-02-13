@@ -29,3 +29,92 @@ fail2ban-client set exim-isp delignoreip 185.63.61.33
 # Linux man page
 https://linux.die.net/man/1/fail2ban-client
 ```
+
+```ruby
+# sudo nano /etc/fail2ban/jail.local
+
+[DEFAULT]
+bantime  = 1h
+maxretry = 5
+findtime = 10m
+ignoreip = 10.0.15.0/24
+
+
+[sshd]
+enabled = true
+port    = ssh
+logpath = /var/log/auth.log
+backend = auto
+
+[nginx-http-auth]
+enabled  = true
+port     = http,https
+logpath  = /var/log/nginx/error.log
+maxretry = 3
+
+[nginx-limit-req]
+enabled = true
+port    = http,https
+logpath = /var/log/nginx/error.log
+
+[nginx-botsearch]
+enabled  = true
+port     = http,https
+logpath  = /var/log/nginx/error.log
+maxretry = 2
+
+
+
+[apache-auth]
+enabled  = true
+port     = http,https
+logpath  = /var/log/apache2/error.log
+maxretry = 5
+
+[apache-badbots]
+port     = http,https
+logpath  = /var/log/apache2/access.log
+bantime  = 48h
+maxretry = 1
+
+[apache-noscript]
+port     = http,https
+logpath  = /var/log/apache2/error.log
+
+[apache-overflows]
+port     = http,https
+logpath  = /var/log/apache2/error.log
+maxretry = 2
+
+[apache-nohome]
+port     = http,https
+logpath  = /var/log/apache2/error.log
+maxretry = 2
+
+[apache-botsearch]
+port     = http,https
+logpath  = /var/log/apache2/error.log
+maxretry = 2
+
+[apache-modsecurity]
+port     = http,https
+logpath  = /var/log/apache2/error.log
+maxretry = 2
+
+[apache-shellshock]
+port     = http,https
+logpath  = /var/log/apache2/error.log
+maxretry = 1
+```
+
+```ruby
+sudo fail2ban-client status
+sudo fail2ban-client status sshd
+
+sudo fail2ban-client set sshd unbanip 192.168.234.128
+
+https://firstvds.ru/technology/ustanovka-i-nastroyka-fail2ban
+https://wiki.astralinux.ru/pages/viewpage.action?pageId=48760206
+https://redos.red-soft.ru/base/redos-7_3/7_3-security/7_3-fail2ban/
+https://adminvps.ru/blog/nastrojka-fail2ban-na-ubuntu-24-04-lts-i-zashhita-ot-brutforsa/
+```
