@@ -126,10 +126,8 @@ port = http, https
 filter = nginx-404
 logpath = /var/log/nginx/access.log
 maxretry = 5
-findtime = 60
-bantime = 1800
-backend = polling
-action = iptables-multiport[name=nginx-404, port="http,https", protocol=tcp]
+findtime = 10m
+bantime = 24h
 ```
 
 ```ruby
