@@ -156,6 +156,35 @@ sudo fail2ban-regex /var/log/apache2/access.log /etc/fail2ban/filter.d/wordpress
 ```
 
 
+### Пользовательский фильтр для Nextcloud
+
+```ruby
+sudo nano /etc/fail2ban/filter.d/nextcloud.conf
+[Definition]
+failregex = ^.*\"remoteAddr\":\"<HOST>\".*\"message\":\"Login failed:.*$
+            ^.*\"remoteAddr\":\"<HOST>\".*\"message\":\"Trusted domain error.*$
+            #^.*\"remoteAddr\":\"<HOST>\".*\"message\":\"Two-factor challenge failed.*$
+ignoreregex =
+datepattern = ,?\s*"time"\s*:\s*"%%Y-%%m-%%d[T ]%%H:%%M:%%S(%%z)?"
+
+# Тюрьма в jail.local
+
+[nextcloud]
+backend  = auto
+enabled  = true
+port     = 80,443
+protocol = tcp
+filter   = nextcloud
+maxretry = 3
+bantime  = 24h
+findtime = 12h
+logpath  = /var/www/html/nextcloud/data/nextcloud.log
+
+# Проверка правила командой она покажет, находится ли IP из лога:
+fail2ban-regex /var/www/html/nextcloud/data/nextcloud.log /etc/fail2ban/filter.d/nextcloud.conf
+
+https://docs.nextcloud.com/server/21/admin_manual/installation/harden_server.html?highlight=fail2ban
+```
 
 ```ruby
 sudo fail2ban-client status
