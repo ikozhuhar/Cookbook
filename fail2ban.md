@@ -107,6 +107,31 @@ logpath  = /var/log/apache2/error.log
 maxretry = 1
 ```
 
+
+### Пользовательский фильтр
+
+```ruby
+# Пользовательский фильтр
+nano /etc/fail2ban/filter.d/nginx-404.conf
+
+[Definition]
+failregex = ^<HOST> - .* "(GET|POST|HEAD) .*HTTP/.*" 404 .*
+ignoreregex =
+
+Тюрьма в jail.local
+
+[nginx-404]
+enabled = true
+port = http, https
+filter = nginx-404
+logpath = /var/log/nginx/access.log
+maxretry = 5
+findtime = 60
+bantime = 1800
+backend = polling
+action = iptables-multiport[name=nginx-404, port="http,https", protocol=tcp]
+```
+
 ```ruby
 sudo fail2ban-client status
 sudo fail2ban-client status sshd
