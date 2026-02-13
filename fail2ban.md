@@ -111,7 +111,7 @@ maxretry = 1
 ### Пользовательский фильтр для Nginx и защита WordPress на Apache
 
 ```ruby
-# Пользовательский фильтр
+# Пользовательский фильтр для Nginx
 nano /etc/fail2ban/filter.d/nginx-404.conf
 
 [Definition]
@@ -131,7 +131,8 @@ bantime = 24h
 ```
 
 ```ruby
-# Фильтр: /etc/fail2ban/filter.d/wordpress.conf
+# Фильтр: защита WordPress на Apache
+sudo nano /etc/fail2ban/filter.d/wordpress.conf
 [Definition]
 failregex = ^<HOST> .* "POST /wp-login.php
             ^<HOST> .* "POST /wordpress/wp-login.php
