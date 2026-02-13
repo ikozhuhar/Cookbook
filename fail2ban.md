@@ -166,5 +166,6 @@ sudo fail2ban-client set sshd unbanip 192.168.234.128
 https://firstvds.ru/technology/ustanovka-i-nastroyka-fail2ban
 https://wiki.astralinux.ru/pages/viewpage.action?pageId=48760206
 https://redos.red-soft.ru/base/redos-7_3/7_3-security/7_3-fail2ban/
+https://chat.deepseek.com/a/chat/s/35b47cd8-ebdf-4ad0-a083-9be95d7b319b
 https://adminvps.ru/blog/nastrojka-fail2ban-na-ubuntu-24-04-lts-i-zashhita-ot-brutforsa/
 ```
