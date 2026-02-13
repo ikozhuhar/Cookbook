@@ -108,7 +108,7 @@ maxretry = 1
 ```
 
 
-### Пользовательский фильтр
+### Пользовательский фильтр для Nginx и защита WordPress на Apache
 
 ```ruby
 # Пользовательский фильтр
@@ -129,6 +129,32 @@ maxretry = 5
 findtime = 10m
 bantime = 24h
 ```
+
+```ruby
+# Фильтр: /etc/fail2ban/filter.d/wordpress.conf
+[Definition]
+failregex = ^<HOST> .* "POST /wp-login.php
+            ^<HOST> .* "POST /wordpress/wp-login.php
+            ^<HOST> .* "POST /xmlrpc\.php
+ignoreregex =
+
+# Тюрьма в jail.local
+[wordpress]
+enabled  = true
+filter   = wordpress
+port     = http,https
+logpath  = /var/log/apache2/access.log   # для Debian/Ubuntu
+# logpath = /var/log/httpd/access_log    # для RHEL
+maxretry = 3
+findtime = 5m
+bantime  = 1d
+
+# Тестирование перед запуском
+sudo fail2ban-regex /var/log/nginx/access.log /etc/fail2ban/filter.d/nginx-404.conf
+sudo fail2ban-regex /var/log/apache2/access.log /etc/fail2ban/filter.d/wordpress.conf
+```
+
+
 
 ```ruby
 sudo fail2ban-client status
