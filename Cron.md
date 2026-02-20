@@ -353,4 +353,8 @@ sudo crontab -u gitlab-adm -e
 0 0 * * * root /usr/local/bin/sys-atl-db_backup.sh
 ```
 
+### Дополнительно
+
+Linux. Карманный справочник, стр. 173
+
 
